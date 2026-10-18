@@ -1,0 +1,73 @@
+{
+ "format_version": "1",
+ "note": "Unmodified upstream files from https://github.com/google/fonts (ofl/<folder>), each with its OFL.txt. Never ship modified copies: several families have Reserved Font Names (decision D-016).",
+ "fonts": {
+  "Noto Naskh Arabic": {
+   "file": "notonaskharabic/NotoNaskhArabic[wght].ttf",
+   "weight": "400 700",
+   "licence": "OFL-1.1",
+   "licence_file": "notonaskharabic/OFL.txt",
+   "source": "https://github.com/google/fonts/tree/main/ofl/notonaskharabic",
+   "scripts": [
+    "Arab",
+    "Latn"
+   ]
+  },
+  "Inter": {
+   "file": "inter/Inter[opsz,wght].ttf",
+   "weight": "100 900",
+   "licence": "OFL-1.1",
+   "licence_file": "inter/OFL.txt",
+   "source": "https://github.com/google/fonts/tree/main/ofl/inter",
+   "scripts": [
+    "Latn",
+    "Cyrl",
+    "Grek"
+   ]
+  },
+  "Montserrat": {
+   "file": "montserrat/Montserrat[wght].ttf",
+   "weight": "100 900",
+   "licence": "OFL-1.1",
+   "licence_file": "montserrat/OFL.txt",
+   "source": "https://github.com/google/fonts/tree/main/ofl/montserrat",
+   "scripts": [
+    "Latn",
+    "Cyrl"
+   ]
+  },
+  "Playfair Display": {
+   "file": "playfairdisplay/PlayfairDisplay[wght].ttf",
+   "weight": "400 900",
+   "licence": "OFL-1.1",
+   "licence_file": "playfairdisplay/OFL.txt",
+   "source": "https://github.com/google/fonts/tree/main/ofl/playfairdisplay",
+   "scripts": [
+    "Latn",
+    "Cyrl"
+   ]
+  },
+  "EB Garamond": {
+   "file": "ebgaramond/EBGaramond[wght].ttf",
+   "weight": "400 800",
+   "licence": "OFL-1.1",
+   "licence_file": "ebgaramond/OFL.txt",
+   "source": "https://github.com/google/fonts/tree/main/ofl/ebgaramond",
+   "scripts": [
+    "Latn",
+    "Cyrl",
+    "Grek"
+   ]
+  },
+  "Bebas Neue": {
+   "file": "bebasneue/BebasNeue-Regular.ttf",
+   "weight": "400",
+   "licence": "OFL-1.1",
+   "licence_file": "bebasneue/OFL.txt",
+   "source": "https://github.com/google/fonts/tree/main/ofl/bebasneue",
+   "scripts": [
+    "Latn"
+   ]
+  }
+ }
+}

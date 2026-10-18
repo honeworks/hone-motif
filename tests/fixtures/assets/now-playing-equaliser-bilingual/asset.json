@@ -1,0 +1,131 @@
+{
+ "format_version": "1",
+ "id": "now-playing-equaliser-bilingual",
+ "name": "Now playing, equaliser and two titles",
+ "version": 1,
+ "category": "lower-thirds",
+ "subcategory": "now-playing",
+ "kind": "overlay",
+ "line": "Equaliser bars and a NOW PLAYING kicker, a hairline drawn out, the title with an optional second-language title beside it and the artist line, over a soft corner scrim.",
+ "tags": [
+  "equaliser",
+  "hairline",
+  "bilingual",
+  "scrim",
+  "song-title"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 7000,
+  "min_ms": 5000,
+  "max_ms": 10000
+ },
+ "poster_ms": 4200,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": {
+   "anchor": "bottom-left",
+   "box": [
+    0.0,
+    0.6,
+    0.73,
+    0.4
+   ]
+  }
+ },
+ "slots": [
+  "opening"
+ ],
+ "when": "In the first 5-30 s, before the first sung or spoken line.",
+ "window": {
+  "from": "start",
+  "earliest_ms": 0,
+  "latest_ms": 30000
+ },
+ "repeat": {
+  "max_per_video": 1
+ },
+ "quiet_only": true,
+ "text_fields": [
+  {
+   "prop": "kicker",
+   "max_chars": 18,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "kicker"
+  },
+  {
+   "prop": "title",
+   "max_chars": 32,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "title"
+  },
+  {
+   "prop": "titleAlt",
+   "max_chars": 32,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "title"
+  },
+  {
+   "prop": "artist",
+   "max_chars": 48,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "credit"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "kicker": "NOW PLAYING",
+  "title": "The Long Road",
+  "titleAlt": "جديد على نحو",
+  "artist": "Hone Studio — live session"
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "kicker": "البحر في",
+   "title": "جديد على نحو",
+   "titleAlt": "",
+   "artist": "البحر والسماء في الليل نغني معا"
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Bebas Neue",
+  "EB Garamond",
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic",
+  "Playfair Display"
+ ],
+ "origin": {
+  "from": "prototype asset-gallery #4 (now-playing)",
+  "date": "2026-10-10"
+ }
+}

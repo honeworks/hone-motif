@@ -1,0 +1,137 @@
+{
+ "format_version": "1",
+ "id": "epigraph-verse-couplet",
+ "name": "Epigraph, couplet",
+ "version": 1,
+ "category": "text-cards",
+ "subcategory": "epigraph",
+ "kind": "scene",
+ "line": "A verse set as a couplet (two half-lines side by side; right first in right-to-left text), each wiping in in reading order, then a translation and the attribution.",
+ "tags": [
+  "verse",
+  "couplet",
+  "calligraphy",
+  "translation"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "tragic",
+  "reflective",
+  "melancholic",
+  "mystic",
+  "romantic"
+ ],
+ "duration": {
+  "default_ms": 8000,
+  "min_ms": 7000,
+  "max_ms": 12000
+ },
+ "poster_ms": 5600,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": "full"
+ },
+ "over_footage": true,
+ "slots": [
+  "opening",
+  "section-start"
+ ],
+ "when": "Before the title or the first verse; needs at least 7 s of calm music without singing.",
+ "repeat": {
+  "max_per_video": 1
+ },
+ "quiet_only": true,
+ "text_fields": [
+  {
+   "prop": "verse[0]",
+   "max_chars": 40,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "quote"
+  },
+  {
+   "prop": "verse[1]",
+   "max_chars": 40,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "quote"
+  },
+  {
+   "prop": "translation",
+   "max_chars": 140,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "quote"
+  },
+  {
+   "prop": "attribution",
+   "max_chars": 40,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "credit"
+  },
+  {
+   "prop": "attributionAlt",
+   "max_chars": 40,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "credit"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "verse": [
+   "القمر حتى يعود الصباح من",
+   "الليل نغني معا تحت ضوء"
+  ],
+  "translation": "Mighty is the one who is wise; through knowledge an old heart grows young again.",
+  "attribution": "Anonymous, an old verse",
+  "attributionAlt": "جديد على"
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "verse": [
+    "الطريق الطويل نحو البحر",
+    "الليل نغني معا تحت ضوء"
+   ],
+   "translation": "",
+   "attribution": "",
+   "attributionAlt": "جديد على"
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "EB Garamond",
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic",
+  "Playfair Display"
+ ],
+ "origin": {
+  "from": "prototype asset-gallery #9 (epigraph)",
+  "date": "2026-10-10"
+ }
+}

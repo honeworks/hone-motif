@@ -1,0 +1,44 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "theme": {
+   "default": "cinematic",
+   "description": "the look (design §4.1)",
+   "type": "string",
+   "enum": [
+    "cinematic",
+    "dark",
+    "documentary",
+    "warm",
+    "pop"
+   ]
+  },
+  "accent": {
+   "description": "replaces the theme's accent colour",
+   "type": "string",
+   "pattern": "^#[0-9a-fA-F]{6}$"
+  },
+  "label": {
+   "type": "string",
+   "maxLength": 20,
+   "description": "the section name, e.g. Verse or Chapter"
+  },
+  "numeral": {
+   "default": "",
+   "type": "string",
+   "maxLength": 6,
+   "description": "the number after it, e.g. I or 2"
+  },
+  "labelAlt": {
+   "default": "",
+   "type": "string",
+   "maxLength": 32,
+   "description": "the section name in a second language, under it"
+  }
+ },
+ "required": [
+  "label"
+ ],
+ "additionalProperties": false
+}

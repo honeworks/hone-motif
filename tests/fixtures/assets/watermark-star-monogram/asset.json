@@ -1,0 +1,104 @@
+{
+ "format_version": "1",
+ "id": "watermark-star-monogram",
+ "name": "Watermark, star and monogram",
+ "version": 1,
+ "category": "channel-branding",
+ "subcategory": "watermark",
+ "kind": "overlay",
+ "line": "An eight-pointed star with a monogram and the channel name in a corner; it settles to a low opacity and a glint crosses the star every few seconds.",
+ "tags": [
+  "star",
+  "khatam",
+  "monogram",
+  "glint",
+  "corner"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 6000,
+  "min_ms": 3000,
+  "max_ms": 1800000
+ },
+ "poster_ms": 5100,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": {
+   "anchor": "bottom-right",
+   "box": [
+    0.76,
+    0.88,
+    0.22,
+    0.09
+   ]
+  }
+ },
+ "slots": [
+  "whole-video"
+ ],
+ "when": "The whole video except the intro, full-frame text cards and the end screen; split it around them.",
+ "repeat": {
+  "max_per_video": 4
+ },
+ "text_fields": [
+  {
+   "prop": "monogram",
+   "max_chars": 2,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "monogram"
+  },
+  {
+   "prop": "channelName",
+   "max_chars": 24,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "name"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "monogram": "ه",
+  "channelName": "Hone Studio",
+  "corner": "bottom-right"
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "monogram": "ه",
+   "channelName": "جديد على",
+   "corner": "bottom-right"
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Bebas Neue",
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic",
+  "Playfair Display"
+ ],
+ "origin": {
+  "from": "prototype asset-gallery #3 (watermark-bug)",
+  "date": "2026-10-10"
+ }
+}

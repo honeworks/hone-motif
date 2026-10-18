@@ -1,0 +1,54 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "theme": {
+   "default": "cinematic",
+   "description": "the look (design §4.1)",
+   "type": "string",
+   "enum": [
+    "cinematic",
+    "dark",
+    "documentary",
+    "warm",
+    "pop"
+   ]
+  },
+  "accent": {
+   "description": "replaces the theme's accent colour",
+   "type": "string",
+   "pattern": "^#[0-9a-fA-F]{6}$"
+  },
+  "origin": {
+   "default": [
+    0.36,
+    0.55
+   ],
+   "description": "where the first hole opens, as fractions of the frame",
+   "type": "array",
+   "prefixItems": [
+    {
+     "type": "number",
+     "minimum": 0,
+     "maximum": 1
+    },
+    {
+     "type": "number",
+     "minimum": 0,
+     "maximum": 1
+    }
+   ],
+   "items": false,
+   "minItems": 2,
+   "maxItems": 2
+  },
+  "seed": {
+   "default": 7,
+   "description": "varies the shape of the burn",
+   "type": "integer",
+   "minimum": 0,
+   "maximum": 9999
+  }
+ },
+ "additionalProperties": false
+}

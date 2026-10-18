@@ -1,0 +1,109 @@
+{
+ "format_version": "1",
+ "id": "two-videos-subscribe-calm-frames",
+ "name": "End screen, two videos and subscribe",
+ "version": 1,
+ "category": "end-screens",
+ "subcategory": "two-videos-subscribe",
+ "kind": "scene",
+ "line": "The footage dims and calm frames appear where the platform draws its own end-screen elements: two 16:9 video tiles and a round subscribe button, under a heading.",
+ "tags": [
+  "end-screen",
+  "frames",
+  "dim",
+  "youtube-layout"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 20000,
+  "min_ms": 5000,
+  "max_ms": 20000
+ },
+ "poster_ms": 6000,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": "full"
+ },
+ "over_footage": true,
+ "slots": [
+  "end-screen"
+ ],
+ "when": "The last 5-20 s of a video at least 25 s long; nothing else may show while it does.",
+ "window": {
+  "from": "end",
+  "earliest_ms": 20000,
+  "latest_ms": 5000
+ },
+ "ends_with_video": true,
+ "min_video_ms": 25000,
+ "repeat": {
+  "max_per_video": 1
+ },
+ "clear_frame": true,
+ "platforms": [
+  "youtube"
+ ],
+ "text_fields": [
+  {
+   "prop": "heading",
+   "max_chars": 28,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "heading"
+  },
+  {
+   "prop": "headingAlt",
+   "max_chars": 32,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "heading"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "heading": "The story continues",
+  "headingAlt": "ضوء القمر حتى",
+  "showGuides": true,
+  "dim": 0.55
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "heading": "يعود الصباح من",
+   "headingAlt": "",
+   "showGuides": true,
+   "dim": 0.55
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Bebas Neue",
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic",
+  "Playfair Display"
+ ],
+ "origin": {
+  "from": "prototype asset-gallery #11 (end-screen)",
+  "date": "2026-10-10"
+ }
+}

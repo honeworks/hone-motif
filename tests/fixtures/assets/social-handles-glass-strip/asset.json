@@ -1,0 +1,125 @@
+{
+ "format_version": "1",
+ "id": "social-handles-glass-strip",
+ "name": "Social handles, glass strip",
+ "version": 1,
+ "category": "channel-branding",
+ "subcategory": "social-handles",
+ "kind": "overlay",
+ "line": "A centred strip at the bottom with up to four handles, each with a neutral line icon (@, globe, note, mail; no platform logos), appearing in turn.",
+ "tags": [
+  "handles",
+  "icons",
+  "strip",
+  "glass"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 6000,
+  "min_ms": 5000,
+  "max_ms": 9000
+ },
+ "poster_ms": 3600,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": {
+   "anchor": "bottom-center",
+   "box": [
+    0.17,
+    0.74,
+    0.66,
+    0.19
+   ]
+  }
+ },
+ "slots": [
+  "closing",
+  "anywhere"
+ ],
+ "when": "The outro, or the lead-in to the end screen.",
+ "repeat": {
+  "max_per_video": 1
+ },
+ "quiet_only": true,
+ "text_fields": [
+  {
+   "prop": "heading",
+   "max_chars": 24,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "heading"
+  },
+  {
+   "prop": "handles[].label",
+   "max_chars": 28,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "handle"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "heading": "FOLLOW THE STORY",
+  "handles": [
+   {
+    "icon": "at",
+    "label": "@honeworks"
+   },
+   {
+    "icon": "globe",
+    "label": "github.com/honeworks"
+   },
+   {
+    "icon": "note",
+    "label": "Hone Studio"
+   }
+  ]
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "heading": "البحر في",
+   "handles": [
+    {
+     "icon": "at",
+     "label": "@honeworks"
+    },
+    {
+     "icon": "note",
+     "label": "الليل نغني"
+    }
+   ]
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Bebas Neue",
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic",
+  "Playfair Display"
+ ],
+ "origin": {
+  "from": "prototype asset-gallery #6 (social-card)",
+  "date": "2026-10-10"
+ }
+}

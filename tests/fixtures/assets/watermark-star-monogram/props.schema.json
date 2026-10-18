@@ -1,0 +1,62 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "theme": {
+   "default": "cinematic",
+   "description": "the look (design §4.1)",
+   "type": "string",
+   "enum": [
+    "cinematic",
+    "dark",
+    "documentary",
+    "warm",
+    "pop"
+   ]
+  },
+  "accent": {
+   "description": "replaces the theme's accent colour",
+   "type": "string",
+   "pattern": "^#[0-9a-fA-F]{6}$"
+  },
+  "monogram": {
+   "type": "string",
+   "maxLength": 2,
+   "description": "one or two letters inside the star"
+  },
+  "channelName": {
+   "type": "string",
+   "maxLength": 24,
+   "description": "the channel name beside the star"
+  },
+  "corner": {
+   "default": "bottom-right",
+   "type": "string",
+   "enum": [
+    "top-left",
+    "top-right",
+    "bottom-left",
+    "bottom-right"
+   ]
+  },
+  "restOpacity": {
+   "default": 0.6,
+   "description": "opacity after it settles",
+   "type": "number",
+   "minimum": 0.2,
+   "maximum": 1
+  },
+  "glintEverySec": {
+   "default": 4,
+   "description": "seconds between two glints",
+   "type": "number",
+   "minimum": 2,
+   "maximum": 30
+  }
+ },
+ "required": [
+  "monogram",
+  "channelName"
+ ],
+ "additionalProperties": false
+}

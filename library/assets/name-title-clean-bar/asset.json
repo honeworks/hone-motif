@@ -1,0 +1,127 @@
+{
+ "format_version": "1",
+ "id": "name-title-clean-bar",
+ "name": "Name and title, clean bar",
+ "version": 1,
+ "category": "lower-thirds",
+ "subcategory": "name-title",
+ "kind": "overlay",
+ "line": "A panel opens from its edge with an accent bar on the reading side; the name and then the role rise into it, and it closes the way it came.",
+ "tags": [
+  "panel",
+  "bar",
+  "clean",
+  "name",
+  "broadcast"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 6000,
+  "min_ms": 4000,
+  "max_ms": 12000
+ },
+ "poster_ms": 3000,
+ "aspects": [
+  "16:9",
+  "9:16",
+  "1:1"
+ ],
+ "regions": {
+  "16:9": {
+   "anchor": "bottom-left",
+   "box": [
+    0.05,
+    0.75,
+    0.4,
+    0.2
+   ]
+  },
+  "9:16": {
+   "anchor": "bottom-left",
+   "box": [
+    0.05,
+    0.8375,
+    0.8,
+    0.1125
+   ]
+  },
+  "1:1": {
+   "anchor": "bottom-left",
+   "box": [
+    0.05,
+    0.75,
+    0.8,
+    0.2
+   ]
+  }
+ },
+ "slots": [
+  "anywhere",
+  "section-start"
+ ],
+ "when": "The first time a person speaks or appears on screen, a second or two after their shot starts.",
+ "repeat": {
+  "max_per_section": 1,
+  "min_gap_ms": 20000
+ },
+ "quiet_only": false,
+ "text_fields": [
+  {
+   "prop": "name",
+   "max_chars": 28,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "name"
+  },
+  {
+   "prop": "role",
+   "max_chars": 40,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "title"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "name": "Alex Morgan",
+  "role": "Composer and producer",
+  "corner": "bottom-left"
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "name": "ليلى حسن",
+   "role": "ملحنة ومنتجة موسيقية",
+   "corner": "bottom-left"
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Bebas Neue",
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic",
+  "Playfair Display"
+ ],
+ "origin": {
+  "from": "new (0002 starter)",
+  "date": "2026-10-18"
+ }
+}

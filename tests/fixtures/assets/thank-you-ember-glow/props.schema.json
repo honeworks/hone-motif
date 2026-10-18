@@ -1,0 +1,42 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "theme": {
+   "default": "cinematic",
+   "description": "the look (design §4.1)",
+   "type": "string",
+   "enum": [
+    "cinematic",
+    "dark",
+    "documentary",
+    "warm",
+    "pop"
+   ]
+  },
+  "accent": {
+   "description": "replaces the theme's accent colour",
+   "type": "string",
+   "pattern": "^#[0-9a-fA-F]{6}$"
+  },
+  "line": {
+   "default": "Thank you for watching",
+   "type": "string",
+   "maxLength": 32,
+   "description": "the thank-you line"
+  },
+  "lineAlt": {
+   "default": "",
+   "type": "string",
+   "maxLength": 40,
+   "description": "the line in a second language"
+  },
+  "signature": {
+   "default": "",
+   "type": "string",
+   "maxLength": 32,
+   "description": "the signature under the ornament"
+  }
+ },
+ "additionalProperties": false
+}

@@ -1,0 +1,64 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "theme": {
+   "default": "cinematic",
+   "description": "the look (design §4.1)",
+   "type": "string",
+   "enum": [
+    "cinematic",
+    "dark",
+    "documentary",
+    "warm",
+    "pop"
+   ]
+  },
+  "accent": {
+   "description": "replaces the theme's accent colour",
+   "type": "string",
+   "pattern": "^#[0-9a-fA-F]{6}$"
+  },
+  "heading": {
+   "default": "FOLLOW",
+   "type": "string",
+   "maxLength": 24,
+   "description": "the line above the strip"
+  },
+  "handles": {
+   "minItems": 1,
+   "maxItems": 4,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "icon": {
+      "type": "string",
+      "enum": [
+       "at",
+       "globe",
+       "note",
+       "mail"
+      ],
+      "description": "a neutral icon; never a platform logo"
+     },
+     "label": {
+      "type": "string",
+      "maxLength": 28,
+      "description": "the handle or address"
+     }
+    },
+    "required": [
+     "icon",
+     "label"
+    ],
+    "additionalProperties": false
+   },
+   "description": "one to four handles, left to right"
+  }
+ },
+ "required": [
+  "handles"
+ ],
+ "additionalProperties": false
+}

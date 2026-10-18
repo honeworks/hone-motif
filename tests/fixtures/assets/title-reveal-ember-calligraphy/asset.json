@@ -1,0 +1,128 @@
+{
+ "format_version": "1",
+ "id": "title-reveal-ember-calligraphy",
+ "name": "Title reveal, ember calligraphy",
+ "version": 1,
+ "category": "intros",
+ "subcategory": "title-reveal",
+ "kind": "scene",
+ "line": "From the theme's backdrop: rays, smoke and dust; the title wipes in in reading order, an ornament draws out, a subtitle tightens and the artist line rises; then the curtain lifts onto the footage.",
+ "tags": [
+  "calligraphy",
+  "rays",
+  "smoke",
+  "dust",
+  "embers",
+  "curtain"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "epic",
+  "triumphant",
+  "tragic",
+  "mysterious"
+ ],
+ "duration": {
+  "default_ms": 8000,
+  "min_ms": 6000,
+  "max_ms": 12000
+ },
+ "poster_ms": 4800,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": "full"
+ },
+ "over_footage": true,
+ "slots": [
+  "opening"
+ ],
+ "when": "At 0 s, before or over the first shot; the video needs an intro of at least 6 s without singing or speech.",
+ "window": {
+  "from": "start",
+  "earliest_ms": 0,
+  "latest_ms": 2000
+ },
+ "repeat": {
+  "max_per_video": 1
+ },
+ "quiet_only": true,
+ "text_fields": [
+  {
+   "prop": "title",
+   "max_chars": 28,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "title"
+  },
+  {
+   "prop": "subtitle",
+   "max_chars": 36,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "subtitle"
+  },
+  {
+   "prop": "tagline",
+   "max_chars": 24,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "body"
+  },
+  {
+   "prop": "artist",
+   "max_chars": 32,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "name"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "title": "القمر حتى من",
+  "subtitle": "The Long Road",
+  "tagline": "a song by",
+  "artist": "Hone Studio"
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "title": "جديد على نحو",
+   "subtitle": "البحر والسماء في",
+   "tagline": "الليل نغني",
+   "artist": "معا تحت"
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Bebas Neue",
+  "EB Garamond",
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic",
+  "Playfair Display"
+ ],
+ "origin": {
+  "from": "prototype asset-gallery #7 (intro-title)",
+  "date": "2026-10-10"
+ }
+}

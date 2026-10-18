@@ -1,0 +1,38 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "theme": {
+   "default": "cinematic",
+   "description": "the look (design §4.1)",
+   "type": "string",
+   "enum": [
+    "cinematic",
+    "dark",
+    "documentary",
+    "warm",
+    "pop"
+   ]
+  },
+  "accent": {
+   "description": "replaces the theme's accent colour",
+   "type": "string",
+   "pattern": "^#[0-9a-fA-F]{6}$"
+  },
+  "title": {
+   "type": "string",
+   "maxLength": 32,
+   "description": "the big title"
+  },
+  "subtitle": {
+   "default": "",
+   "type": "string",
+   "maxLength": 48,
+   "description": "a line under the title"
+  }
+ },
+ "required": [
+  "title"
+ ],
+ "additionalProperties": false
+}

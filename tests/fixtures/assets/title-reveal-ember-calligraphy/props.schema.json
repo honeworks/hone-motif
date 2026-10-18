@@ -1,0 +1,57 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "theme": {
+   "default": "cinematic",
+   "description": "the look (design §4.1)",
+   "type": "string",
+   "enum": [
+    "cinematic",
+    "dark",
+    "documentary",
+    "warm",
+    "pop"
+   ]
+  },
+  "accent": {
+   "description": "replaces the theme's accent colour",
+   "type": "string",
+   "pattern": "^#[0-9a-fA-F]{6}$"
+  },
+  "title": {
+   "type": "string",
+   "maxLength": 28,
+   "description": "the big title; calligraphic in right-to-left scripts"
+  },
+  "subtitle": {
+   "default": "",
+   "type": "string",
+   "maxLength": 36,
+   "description": "a second title line under the ornament"
+  },
+  "tagline": {
+   "default": "",
+   "type": "string",
+   "maxLength": 24,
+   "description": "the soft words before the artist, e.g. \"a song by\""
+  },
+  "artist": {
+   "default": "",
+   "type": "string",
+   "maxLength": 32,
+   "description": "the artist or channel"
+  },
+  "revealAt": {
+   "default": 0.77,
+   "description": "when the curtain lifts onto the footage, as a fraction of the length",
+   "type": "number",
+   "minimum": 0.3,
+   "maximum": 0.95
+  }
+ },
+ "required": [
+  "title"
+ ],
+ "additionalProperties": false
+}

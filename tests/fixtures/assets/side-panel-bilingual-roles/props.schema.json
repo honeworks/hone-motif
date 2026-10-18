@@ -1,0 +1,71 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "theme": {
+   "default": "cinematic",
+   "description": "the look (design §4.1)",
+   "type": "string",
+   "enum": [
+    "cinematic",
+    "dark",
+    "documentary",
+    "warm",
+    "pop"
+   ]
+  },
+  "accent": {
+   "description": "replaces the theme's accent colour",
+   "type": "string",
+   "pattern": "^#[0-9a-fA-F]{6}$"
+  },
+  "heading": {
+   "default": "CREDITS",
+   "type": "string",
+   "maxLength": 20,
+   "description": "the heading, e.g. CREDITS"
+  },
+  "headingAlt": {
+   "default": "",
+   "type": "string",
+   "maxLength": 24,
+   "description": "the heading in a second language"
+  },
+  "lines": {
+   "minItems": 1,
+   "maxItems": 5,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "role": {
+      "type": "string",
+      "maxLength": 20,
+      "description": "the role, e.g. Music"
+     },
+     "roleAlt": {
+      "default": "",
+      "type": "string",
+      "maxLength": 20,
+      "description": "the role in a second language"
+     },
+     "name": {
+      "type": "string",
+      "maxLength": 28,
+      "description": "the name"
+     }
+    },
+    "required": [
+     "role",
+     "name"
+    ],
+    "additionalProperties": false
+   },
+   "description": "one to five credits, top to bottom"
+  }
+ },
+ "required": [
+  "lines"
+ ],
+ "additionalProperties": false
+}

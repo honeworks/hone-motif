@@ -1,0 +1,65 @@
+{
+ "format_version": "1",
+ "id": "light-leak-amber-sweep",
+ "name": "Light leak, amber sweep",
+ "version": 1,
+ "category": "transitions",
+ "subcategory": "light-leak",
+ "kind": "transition",
+ "line": "Blooms in the theme's colours sweep across with a hot streak at the peak; the cut dissolves under the brightest moment.",
+ "tags": [
+  "light-leak",
+  "bloom",
+  "streak",
+  "screen-blend"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "romantic",
+  "hopeful",
+  "nostalgic",
+  "tender",
+  "triumphant"
+ ],
+ "duration": {
+  "default_ms": 3000,
+  "min_ms": 3000,
+  "max_ms": 3000
+ },
+ "poster_ms": 1260,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": "full"
+ },
+ "slots": [
+  "cut"
+ ],
+ "when": "On a downbeat into a chorus or a lift in mood.",
+ "repeat": {
+  "max_per_video": 3
+ },
+ "text_fields": [],
+ "scripts": [],
+ "props": {
+  "theme": "cinematic",
+  "direction": "ltr"
+ },
+ "transition": {
+  "cut_ms": 1500,
+  "fx_blend": "screen"
+ },
+ "licence": "Apache-2.0",
+ "fonts": [],
+ "origin": {
+  "from": "prototype asset-gallery #13 (light-leak)",
+  "date": "2026-10-10"
+ }
+}

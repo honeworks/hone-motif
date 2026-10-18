@@ -1,0 +1,65 @@
+{
+ "format_version": "1",
+ "id": "ink-and-paint-bloom-wipe",
+ "name": "Ink and paint, bloom wipe",
+ "version": 1,
+ "category": "transitions",
+ "subcategory": "ink-and-paint",
+ "kind": "transition",
+ "line": "Ink blooms spread across the frame one after another with a smoky fringe; the next shot lives inside the ink.",
+ "tags": [
+  "ink",
+  "bloom",
+  "organic",
+  "smoke"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "reflective",
+  "mystic",
+  "mysterious",
+  "nostalgic"
+ ],
+ "duration": {
+  "default_ms": 3000,
+  "min_ms": 3000,
+  "max_ms": 3000
+ },
+ "poster_ms": 1260,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": "full"
+ },
+ "slots": [
+  "cut"
+ ],
+ "when": "A change of place or time, a flashback.",
+ "repeat": {
+  "max_per_video": 3
+ },
+ "text_fields": [],
+ "scripts": [],
+ "props": {
+  "theme": "cinematic",
+  "direction": "rtl",
+  "seed": 3
+ },
+ "transition": {
+  "cut_ms": 1500,
+  "fx_blend": "normal"
+ },
+ "licence": "Apache-2.0",
+ "fonts": [],
+ "origin": {
+  "from": "prototype asset-gallery #15 (ink-wipe)",
+  "date": "2026-10-10"
+ }
+}

@@ -1,0 +1,66 @@
+{
+ "format_version": "1",
+ "id": "matte-wipe-soft-edge",
+ "name": "Matte wipe, soft edge",
+ "version": 1,
+ "category": "transitions",
+ "subcategory": "matte-wipe",
+ "kind": "transition",
+ "line": "A feathered edge crosses the frame on a slant, with a thin accent line riding its middle.",
+ "tags": [
+  "wipe",
+  "diagonal",
+  "soft-edge",
+  "clean"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 1500,
+  "min_ms": 1500,
+  "max_ms": 1500
+ },
+ "poster_ms": 750,
+ "aspects": [
+  "16:9",
+  "9:16",
+  "1:1"
+ ],
+ "regions": {
+  "16:9": "full",
+  "9:16": "full",
+  "1:1": "full"
+ },
+ "slots": [
+  "cut"
+ ],
+ "when": "At a cut between two shots of the same scene, or a gentle move to the next idea.",
+ "repeat": {
+  "max_per_video": 6,
+  "min_gap_ms": 10000
+ },
+ "text_fields": [],
+ "scripts": [],
+ "props": {
+  "theme": "cinematic",
+  "direction": "ltr"
+ },
+ "transition": {
+  "cut_ms": 750,
+  "fx_blend": "normal"
+ },
+ "licence": "Apache-2.0",
+ "fonts": [],
+ "origin": {
+  "from": "new (0002 starter)",
+  "date": "2026-10-18"
+ }
+}

@@ -1,0 +1,384 @@
+{
+ "big-title-clean-rise": {
+  "cinematic": {
+   "phash": "d3c22c3c93c36d3c",
+   "rgb": [
+    13,
+    12,
+    10
+   ]
+  },
+  "cinematic@1:1": {
+   "phash": "90f06f0f90f06f0f",
+   "rgb": [
+    13,
+    12,
+    11
+   ]
+  },
+  "cinematic@9:16": {
+   "phash": "90f06f0f90f06f0f",
+   "rgb": [
+    12,
+    11,
+    10
+   ]
+  },
+  "dark": {
+   "phash": "9b9b64649b9b6464",
+   "rgb": [
+    11,
+    13,
+    14
+   ]
+  },
+  "dark@1:1": {
+   "phash": "90d06f6f90906d6f",
+   "rgb": [
+    13,
+    15,
+    16
+   ]
+  },
+  "dark@9:16": {
+   "phash": "92926d6d92926d6d",
+   "rgb": [
+    10,
+    12,
+    13
+   ]
+  },
+  "documentary": {
+   "phash": "e4389bc3643c9bc3",
+   "rgb": [
+    240,
+    241,
+    239
+   ]
+  },
+  "documentary@1:1": {
+   "phash": "ee0b91f06e0f91f0",
+   "rgb": [
+    237,
+    238,
+    236
+   ]
+  },
+  "documentary@9:16": {
+   "phash": "ec8c93b16c0c93f3",
+   "rgb": [
+    241,
+    242,
+    240
+   ]
+  },
+  "pop": {
+   "phash": "92d36d2c92d36d2c",
+   "rgb": [
+    36,
+    19,
+    79
+   ]
+  },
+  "pop@1:1": {
+   "phash": "94b06b0f94f06b2f",
+   "rgb": [
+    37,
+    20,
+    80
+   ]
+  },
+  "pop@9:16": {
+   "phash": "94b06b4f94b06b4f",
+   "rgb": [
+    34,
+    16,
+    77
+   ]
+  },
+  "rtl": {
+   "phash": "98619a6c679e65939e619a6c618e6593cf339a6430cc659bcf33986432cc679b",
+   "rgb": [
+    12,
+    11,
+    10
+   ]
+  },
+  "warm": {
+   "phash": "9b6764989be76418",
+   "rgb": [
+    44,
+    25,
+    21
+   ]
+  },
+  "warm@1:1": {
+   "phash": "90606f9f91e06e1f",
+   "rgb": [
+    46,
+    27,
+    23
+   ]
+  },
+  "warm@9:16": {
+   "phash": "91616e9e91616e9e",
+   "rgb": [
+    43,
+    25,
+    20
+   ]
+  }
+ },
+ "matte-wipe-soft-edge": {
+  "cinematic": {
+   "phash": "c1d33e39c6ca16d8",
+   "rgb": [
+    76,
+    69,
+    61
+   ]
+  },
+  "cinematic@1:1": {
+   "phash": "c4d33e39c7cc03d8",
+   "rgb": [
+    77,
+    69,
+    61
+   ]
+  },
+  "cinematic@9:16": {
+   "phash": "c5b4273cf1ce388a",
+   "rgb": [
+    79,
+    70,
+    60
+   ]
+  },
+  "dark": {
+   "phash": "c4d33839c6cf1ad8",
+   "rgb": [
+    75,
+    64,
+    59
+   ]
+  },
+  "dark@1:1": {
+   "phash": "c4d33e39c3cc13d8",
+   "rgb": [
+    76,
+    64,
+    59
+   ]
+  },
+  "dark@9:16": {
+   "phash": "c5d43f3cd3ce1882",
+   "rgb": [
+    78,
+    64,
+    57
+   ]
+  },
+  "documentary": {
+   "phash": "c4d33c39c6cf12d8",
+   "rgb": [
+    76,
+    65,
+    59
+   ]
+  },
+  "documentary@1:1": {
+   "phash": "c4d33e39c3cc13d8",
+   "rgb": [
+    77,
+    65,
+    58
+   ]
+  },
+  "documentary@9:16": {
+   "phash": "c5943f3cd3ce1883",
+   "rgb": [
+    79,
+    65,
+    57
+   ]
+  },
+  "pop": {
+   "phash": "c9d33e39c6ca16d0",
+   "rgb": [
+    77,
+    70,
+    57
+   ]
+  },
+  "pop@1:1": {
+   "phash": "c4b33e39c7cc01dc",
+   "rgb": [
+    78,
+    71,
+    56
+   ]
+  },
+  "pop@9:16": {
+   "phash": "c5b5271cf1ce388a",
+   "rgb": [
+    81,
+    72,
+    55
+   ]
+  },
+  "warm": {
+   "phash": "c1d33e39c6ce16d0",
+   "rgb": [
+    76,
+    68,
+    62
+   ]
+  },
+  "warm@1:1": {
+   "phash": "c4d33e39c7cc03d8",
+   "rgb": [
+    77,
+    68,
+    62
+   ]
+  },
+  "warm@9:16": {
+   "phash": "c5b4273ce3ce388a",
+   "rgb": [
+    79,
+    69,
+    61
+   ]
+  }
+ },
+ "name-title-clean-bar": {
+  "cinematic": {
+   "phash": "91966b6b1ce21ee1",
+   "rgb": [
+    29,
+    28,
+    27
+   ]
+  },
+  "cinematic@1:1": {
+   "phash": "94956a6b37c837c8",
+   "rgb": [
+    27,
+    27,
+    26
+   ]
+  },
+  "cinematic@9:16": {
+   "phash": "94956a6bf18e36c8",
+   "rgb": [
+    28,
+    27,
+    26
+   ]
+  },
+  "dark": {
+   "phash": "9097686b1ff00ff0",
+   "rgb": [
+    22,
+    26,
+    29
+   ]
+  },
+  "dark@1:1": {
+   "phash": "949d6a6b39c619e2",
+   "rgb": [
+    21,
+    25,
+    28
+   ]
+  },
+  "dark@9:16": {
+   "phash": "94956a6971c633e6",
+   "rgb": [
+    22,
+    26,
+    28
+   ]
+  },
+  "documentary": {
+   "phash": "c619e63939c639c6",
+   "rgb": [
+    222,
+    223,
+    220
+   ]
+  },
+  "documentary@1:1": {
+   "phash": "942fd06b2bd42bd4",
+   "rgb": [
+    223,
+    223,
+    221
+   ]
+  },
+  "documentary@9:16": {
+   "phash": "942fd06bd0d42fd4",
+   "rgb": [
+    224,
+    224,
+    222
+   ]
+  },
+  "pop": {
+   "phash": "c09fe06b1fe01fe0",
+   "rgb": [
+    193,
+    82,
+    196
+   ]
+  },
+  "pop@1:1": {
+   "phash": "943fc06b3fc03fc0",
+   "rgb": [
+    191,
+    79,
+    196
+   ]
+  },
+  "pop@9:16": {
+   "phash": "90bfc06fd0c62fd0",
+   "rgb": [
+    193,
+    82,
+    198
+   ]
+  },
+  "rtl": {
+   "phash": "b25ca4d249a549ad554bb656649649adb969a45ab6d696b449a9b969aa52b6d2",
+   "rgb": [
+    23,
+    23,
+    22
+   ]
+  },
+  "warm": {
+   "phash": "c419e67939c639c6",
+   "rgb": [
+    224,
+    208,
+    197
+   ]
+  },
+  "warm@1:1": {
+   "phash": "942fd06b2bd42fd0",
+   "rgb": [
+    224,
+    209,
+    197
+   ]
+  },
+  "warm@9:16": {
+   "phash": "942fd06bd4d42fd0",
+   "rgb": [
+    225,
+    209,
+    198
+   ]
+  }
+ }
+}

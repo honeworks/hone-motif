@@ -1,0 +1,55 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "theme": {
+   "default": "cinematic",
+   "description": "the look (design §4.1)",
+   "type": "string",
+   "enum": [
+    "cinematic",
+    "dark",
+    "documentary",
+    "warm",
+    "pop"
+   ]
+  },
+  "accent": {
+   "description": "replaces the theme's accent colour",
+   "type": "string",
+   "pattern": "^#[0-9a-fA-F]{6}$"
+  },
+  "kicker": {
+   "default": "UP NEXT",
+   "type": "string",
+   "maxLength": 18,
+   "description": "the small line above, e.g. NEXT CHAPTER"
+  },
+  "title": {
+   "type": "string",
+   "maxLength": 36,
+   "description": "the next video title"
+  },
+  "titleAlt": {
+   "default": "",
+   "type": "string",
+   "maxLength": 36,
+   "description": "the title in a second language"
+  },
+  "note": {
+   "default": "",
+   "type": "string",
+   "maxLength": 36,
+   "description": "a short note, e.g. Premieres Friday"
+  },
+  "thumbnail": {
+   "default": "",
+   "description": "an image file for the framed still; empty draws a plain frame",
+   "type": "string"
+  }
+ },
+ "required": [
+  "title"
+ ],
+ "additionalProperties": false
+}

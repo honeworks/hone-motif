@@ -1,0 +1,106 @@
+{
+ "format_version": "1",
+ "id": "thank-you-ember-glow",
+ "name": "Thank you, ember glow",
+ "version": 1,
+ "category": "outros",
+ "subcategory": "thank-you",
+ "kind": "scene",
+ "line": "The footage darkens, embers and dust rise, a thank-you line and a second-language line appear, a signature under an ornament; then it fades to the theme's backdrop.",
+ "tags": [
+  "embers",
+  "dust",
+  "signature",
+  "fade"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 6000,
+  "min_ms": 5000,
+  "max_ms": 9000
+ },
+ "poster_ms": 4000,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": "full"
+ },
+ "over_footage": true,
+ "slots": [
+  "closing"
+ ],
+ "when": "After the last sung or spoken line, before the end screen.",
+ "repeat": {
+  "max_per_video": 1
+ },
+ "text_fields": [
+  {
+   "prop": "line",
+   "max_chars": 32,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "title"
+  },
+  {
+   "prop": "lineAlt",
+   "max_chars": 40,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "title"
+  },
+  {
+   "prop": "signature",
+   "max_chars": 32,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "name"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "line": "Thank you for watching",
+  "lineAlt": "معا تحت ضوء القمر حتى يعود من",
+  "signature": "Hone Studio"
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "line": "جديد على الطريق في",
+   "lineAlt": "الليل نغني معا",
+   "signature": "تحت ضوء"
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Bebas Neue",
+  "EB Garamond",
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic",
+  "Playfair Display"
+ ],
+ "origin": {
+  "from": "prototype asset-gallery #10 (outro-thanks)",
+  "date": "2026-10-10"
+ }
+}

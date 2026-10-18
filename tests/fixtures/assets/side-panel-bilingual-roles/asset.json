@@ -1,0 +1,162 @@
+{
+ "format_version": "1",
+ "id": "side-panel-bilingual-roles",
+ "name": "Credits, side panel",
+ "version": 1,
+ "category": "credits",
+ "subcategory": "side-panel",
+ "kind": "overlay",
+ "line": "A gradient panel on the right: a heading and a hairline, then up to five credits (role, an optional second-language role, name) rise one by one.",
+ "tags": [
+  "panel",
+  "bilingual",
+  "roles",
+  "names"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 7000,
+  "min_ms": 6000,
+  "max_ms": 12000
+ },
+ "poster_ms": 4200,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": {
+   "anchor": "center-right",
+   "box": [
+    0.53,
+    0.0,
+    0.47,
+    1.0
+   ]
+  }
+ },
+ "slots": [
+  "closing"
+ ],
+ "when": "The outro instrumental or the fade of the last chorus.",
+ "repeat": {
+  "max_per_video": 1
+ },
+ "text_fields": [
+  {
+   "prop": "heading",
+   "max_chars": 20,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "heading"
+  },
+  {
+   "prop": "headingAlt",
+   "max_chars": 24,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "heading"
+  },
+  {
+   "prop": "lines[].role",
+   "max_chars": 20,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "label"
+  },
+  {
+   "prop": "lines[].roleAlt",
+   "max_chars": 20,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "label"
+  },
+  {
+   "prop": "lines[].name",
+   "max_chars": 28,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "name"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "heading": "CREDITS",
+  "headingAlt": "تحت",
+  "lines": [
+   {
+    "role": "Words",
+    "roleAlt": "ضوء",
+    "name": "Traditional"
+   },
+   {
+    "role": "Music",
+    "roleAlt": "القمر",
+    "name": "Hone Studio"
+   },
+   {
+    "role": "Visuals",
+    "roleAlt": "حتى",
+    "name": "hone-music-video"
+   },
+   {
+    "role": "Direction",
+    "roleAlt": "يعود",
+    "name": "Bahman Shadmehr"
+   }
+  ]
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "heading": "الصباح",
+   "headingAlt": "",
+   "lines": [
+    {
+     "role": "من",
+     "roleAlt": "",
+     "name": "جديد"
+    },
+    {
+     "role": "على",
+     "roleAlt": "",
+     "name": "الطريق نحو"
+    }
+   ]
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Bebas Neue",
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic",
+  "Playfair Display"
+ ],
+ "origin": {
+  "from": "prototype asset-gallery #5 (credits-card)",
+  "date": "2026-10-10"
+ }
+}

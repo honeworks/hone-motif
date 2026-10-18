@@ -1,0 +1,48 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "theme": {
+   "default": "cinematic",
+   "description": "the look (design §4.1)",
+   "type": "string",
+   "enum": [
+    "cinematic",
+    "dark",
+    "documentary",
+    "warm",
+    "pop"
+   ]
+  },
+  "accent": {
+   "description": "replaces the theme's accent colour",
+   "type": "string",
+   "pattern": "^#[0-9a-fA-F]{6}$"
+  },
+  "heading": {
+   "default": "Watch next",
+   "type": "string",
+   "maxLength": 28,
+   "description": "the heading above the frames"
+  },
+  "headingAlt": {
+   "default": "",
+   "type": "string",
+   "maxLength": 32,
+   "description": "the heading in a second language"
+  },
+  "showGuides": {
+   "default": false,
+   "description": "label the frames with their sizes, for review",
+   "type": "boolean"
+  },
+  "dim": {
+   "default": 0.55,
+   "description": "how much the footage darkens",
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  }
+ },
+ "additionalProperties": false
+}

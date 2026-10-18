@@ -1,0 +1,102 @@
+{
+ "format_version": "1",
+ "id": "big-title-clean-rise",
+ "name": "Big title, clean rise",
+ "version": 1,
+ "category": "titles-and-chapters",
+ "subcategory": "big-title",
+ "kind": "scene",
+ "line": "On the theme's backdrop a big title rises into place behind a short accent rule, then a subtitle fades in under it.",
+ "tags": [
+  "title",
+  "clean",
+  "rule",
+  "typographic"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 4000,
+  "min_ms": 3000,
+  "max_ms": 8000
+ },
+ "poster_ms": 2500,
+ "aspects": [
+  "16:9",
+  "9:16",
+  "1:1"
+ ],
+ "regions": {
+  "16:9": "full",
+  "9:16": "full",
+  "1:1": "full"
+ },
+ "over_footage": false,
+ "slots": [
+  "opening",
+  "section-start"
+ ],
+ "when": "At the start of the video or of a new part, where a few seconds can belong to the title alone.",
+ "repeat": {
+  "max_per_video": 3,
+  "min_gap_ms": 30000
+ },
+ "quiet_only": false,
+ "text_fields": [
+  {
+   "prop": "title",
+   "max_chars": 32,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "title"
+  },
+  {
+   "prop": "subtitle",
+   "max_chars": 48,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "subtitle"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "title": "The Long Road",
+  "subtitle": "A story in three parts"
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "title": "الطريق الطويل",
+   "subtitle": "حكاية في ثلاثة أجزاء"
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Bebas Neue",
+  "EB Garamond",
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic",
+  "Playfair Display"
+ ],
+ "origin": {
+  "from": "new (0002 starter)",
+  "date": "2026-10-18"
+ }
+}

@@ -1,0 +1,102 @@
+{
+ "format_version": "1",
+ "id": "bell-medallion-ring",
+ "name": "Notification bell, medallion",
+ "version": 1,
+ "category": "calls-to-action",
+ "subcategory": "bell",
+ "kind": "overlay",
+ "line": "A ringed medallion pops in, the bell rings twice with ripples, and a one- or two-line nudge to turn on notifications slides out beside it.",
+ "tags": [
+  "bell",
+  "medallion",
+  "ripples",
+  "notifications"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 4000,
+  "min_ms": 3500,
+  "max_ms": 6000
+ },
+ "poster_ms": 2400,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": {
+   "anchor": "top-right",
+   "box": [
+    0.6,
+    0.04,
+    0.37,
+    0.14
+   ]
+  }
+ },
+ "slots": [
+  "anywhere"
+ ],
+ "when": "Right after a like & subscribe nudge, or alone in a quiet passage; never over a sung or spoken line.",
+ "repeat": {
+  "max_per_video": 1
+ },
+ "quiet_only": true,
+ "text_fields": [
+  {
+   "prop": "label",
+   "max_chars": 28,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "nudge"
+  },
+  {
+   "prop": "sublabel",
+   "max_chars": 36,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "nudge"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "label": "Turn on notifications",
+  "sublabel": "في الليل نغني معا تحت",
+  "corner": "top-right"
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "label": "ضوء القمر حتى يعود",
+   "sublabel": "الصباح من جديد على الطريق",
+   "corner": "top-right"
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic"
+ ],
+ "origin": {
+  "from": "prototype asset-gallery #2 (bell-nudge)",
+  "date": "2026-10-10"
+ }
+}

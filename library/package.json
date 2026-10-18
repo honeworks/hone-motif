@@ -1,0 +1,31 @@
+{
+  "name": "hone-motif-library",
+  "private": true,
+  "type": "module",
+  "description": "The hone-motif asset library: Remotion compositions, their props schemas and the renderer's entry (design \u00a75).",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "export": "node scripts/export.ts",
+    "check": "tsc -p . && node scripts/check.ts",
+    "render": "node scripts/render.ts",
+    "stills": "node scripts/stills.ts"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.534",
+    "@remotion/fonts": "4.0.534",
+    "@remotion/layout-utils": "4.0.534",
+    "@remotion/renderer": "4.0.534",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.534",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}

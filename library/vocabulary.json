@@ -1,0 +1,288 @@
+{
+ "format_version": "1",
+ "note": "The closed vocabularies of asset.json (design §2, §3, §4). Adding a word is a design change.",
+ "categories": {
+  "intros": {
+   "subcategories": [
+    "title-reveal",
+    "logo-sting",
+    "cold-open",
+    "countdown"
+   ],
+   "kinds": [
+    "scene",
+    "overlay"
+   ]
+  },
+  "outros": {
+   "subcategories": [
+    "thank-you",
+    "signature",
+    "fade-out",
+    "next-up"
+   ],
+   "kinds": [
+    "scene"
+   ]
+  },
+  "end-screens": {
+   "subcategories": [
+    "two-videos-subscribe",
+    "video-subscribe",
+    "four-elements",
+    "end-card"
+   ],
+   "kinds": [
+    "scene"
+   ]
+  },
+  "calls-to-action": {
+   "subcategories": [
+    "like-subscribe",
+    "bell",
+    "comment",
+    "share",
+    "support"
+   ],
+   "kinds": [
+    "overlay"
+   ]
+  },
+  "lower-thirds": {
+   "subcategories": [
+    "name-title",
+    "now-playing",
+    "location-date",
+    "source",
+    "speaker"
+   ],
+   "kinds": [
+    "overlay"
+   ]
+  },
+  "titles-and-chapters": {
+   "subcategories": [
+    "chapter-card",
+    "section-label",
+    "numbered",
+    "big-title"
+   ],
+   "kinds": [
+    "scene",
+    "overlay"
+   ]
+  },
+  "text-cards": {
+   "subcategories": [
+    "epigraph",
+    "quote",
+    "verse",
+    "statement",
+    "fact"
+   ],
+   "kinds": [
+    "scene"
+   ]
+  },
+  "credits": {
+   "subcategories": [
+    "roll",
+    "card",
+    "side-panel"
+   ],
+   "kinds": [
+    "overlay",
+    "scene"
+   ]
+  },
+  "channel-branding": {
+   "subcategories": [
+    "watermark",
+    "badge",
+    "social-handles"
+   ],
+   "kinds": [
+    "overlay",
+    "loop"
+   ]
+  },
+  "transitions": {
+   "subcategories": [
+    "matte-wipe",
+    "ink-and-paint",
+    "light-leak",
+    "film-burn",
+    "dissolve-and-dip",
+    "shape-wipe",
+    "glitch",
+    "whip-and-zoom"
+   ],
+   "kinds": [
+    "transition"
+   ]
+  },
+  "atmospherics": {
+   "subcategories": [
+    "particles",
+    "light",
+    "texture",
+    "weather"
+   ],
+   "kinds": [
+    "loop"
+   ]
+  },
+  "backgrounds": {
+   "subcategories": [
+    "gradient",
+    "abstract-motion",
+    "pattern",
+    "paper",
+    "studio"
+   ],
+   "kinds": [
+    "background",
+    "loop"
+   ]
+  },
+  "frames-and-borders": {
+   "subcategories": [
+    "letterbox",
+    "vignette",
+    "ornamental",
+    "film-frame",
+    "picture-frame"
+   ],
+   "kinds": [
+    "overlay",
+    "loop"
+   ]
+  },
+  "info-graphics": {
+   "subcategories": [
+    "counter",
+    "timeline",
+    "list",
+    "progress",
+    "map-callout"
+   ],
+   "kinds": [
+    "overlay",
+    "scene"
+   ]
+  },
+  "callouts": {
+   "subcategories": [
+    "arrow",
+    "highlight",
+    "circle",
+    "pointer",
+    "label"
+   ],
+   "kinds": [
+    "overlay"
+   ]
+  },
+  "music-visuals": {
+   "subcategories": [
+    "equaliser",
+    "waveform",
+    "beat-pulse",
+    "track-info"
+   ],
+   "kinds": [
+    "overlay",
+    "loop"
+   ]
+  },
+  "captions": {
+   "subcategories": [
+    "karaoke",
+    "word-by-word",
+    "line",
+    "bilingual",
+    "short-pages"
+   ],
+   "kinds": [
+    "caption"
+   ]
+  }
+ },
+ "kinds": [
+  "overlay",
+  "scene",
+  "transition",
+  "background",
+  "loop",
+  "caption"
+ ],
+ "slots": [
+  "opening",
+  "closing",
+  "end-screen",
+  "section-start",
+  "cut",
+  "anywhere",
+  "whole-video"
+ ],
+ "moods": [
+  "epic",
+  "triumphant",
+  "tragic",
+  "melancholic",
+  "reflective",
+  "mysterious",
+  "mystic",
+  "tense",
+  "violent",
+  "romantic",
+  "tender",
+  "nostalgic",
+  "hopeful",
+  "calm",
+  "playful",
+  "energetic",
+  "upbeat",
+  "informative",
+  "neutral",
+  "any"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "scripts": [
+  "Latn",
+  "Arab",
+  "Hebr",
+  "Cyrl",
+  "Grek",
+  "Deva"
+ ],
+ "aspects": [
+  "16:9",
+  "9:16",
+  "1:1",
+  "4:5"
+ ],
+ "anchors": [
+  "top-left",
+  "top-center",
+  "top-right",
+  "center-left",
+  "center",
+  "center-right",
+  "bottom-left",
+  "bottom-center",
+  "bottom-right"
+ ],
+ "platforms": [
+  "youtube"
+ ],
+ "input_types": [
+  "image"
+ ]
+}

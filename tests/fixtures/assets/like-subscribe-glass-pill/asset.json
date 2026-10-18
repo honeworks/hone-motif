@@ -1,0 +1,125 @@
+{
+ "format_version": "1",
+ "id": "like-subscribe-glass-pill",
+ "name": "Like & subscribe, glass pill",
+ "version": 1,
+ "category": "calls-to-action",
+ "subcategory": "like-subscribe",
+ "kind": "overlay",
+ "line": "A glass pill: a cursor presses Like (the thumb pops), then Subscribe (it turns to Subscribed with a tick), and the bell swings.",
+ "tags": [
+  "glass",
+  "cursor",
+  "bell",
+  "button",
+  "pill"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 6000,
+  "min_ms": 5000,
+  "max_ms": 8000
+ },
+ "poster_ms": 3600,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": {
+   "anchor": "bottom-left",
+   "box": [
+    0.03,
+    0.72,
+    0.31,
+    0.24
+   ]
+  }
+ },
+ "slots": [
+  "anywhere"
+ ],
+ "when": "The first instrumental gap after 30-60 s; never over a sung or spoken line.",
+ "repeat": {
+  "max_per_video": 1
+ },
+ "quiet_only": true,
+ "text_fields": [
+  {
+   "prop": "likeLabel",
+   "max_chars": 12,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "button"
+  },
+  {
+   "prop": "subscribeLabel",
+   "max_chars": 14,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "button"
+  },
+  {
+   "prop": "subscribedLabel",
+   "max_chars": 14,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "button"
+  },
+  {
+   "prop": "channelName",
+   "max_chars": 24,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "name"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "likeLabel": "Like",
+  "subscribeLabel": "Subscribe",
+  "subscribedLabel": "Subscribed",
+  "channelName": "Hone Studio",
+  "corner": "bottom-left"
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "likeLabel": "على",
+   "subscribeLabel": "الطريق نحو",
+   "subscribedLabel": "البحر والسماء",
+   "channelName": "في الليل",
+   "corner": "bottom-left"
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic"
+ ],
+ "origin": {
+  "from": "prototype asset-gallery #1 (subscribe-cta)",
+  "date": "2026-10-10"
+ }
+}

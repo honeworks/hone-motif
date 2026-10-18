@@ -1,0 +1,127 @@
+{
+ "format_version": "1",
+ "id": "next-up-framed-still",
+ "name": "Next up, framed still",
+ "version": 1,
+ "category": "outros",
+ "subcategory": "next-up",
+ "kind": "scene",
+ "line": "On the left a kicker, the next title in one or two languages and a note; on the right a framed still (an image, or a plain theme gradient) slowly pushing in.",
+ "tags": [
+  "teaser",
+  "thumbnail",
+  "frame",
+  "bilingual"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 6000,
+  "min_ms": 5000,
+  "max_ms": 9000
+ },
+ "poster_ms": 3600,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": "full"
+ },
+ "over_footage": true,
+ "slots": [
+  "closing",
+  "anywhere"
+ ],
+ "when": "Before the end screen, or mid-video in a long instrumental passage.",
+ "repeat": {
+  "max_per_video": 1
+ },
+ "quiet_only": true,
+ "text_fields": [
+  {
+   "prop": "kicker",
+   "max_chars": 18,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "kicker"
+  },
+  {
+   "prop": "title",
+   "max_chars": 36,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "title"
+  },
+  {
+   "prop": "titleAlt",
+   "max_chars": 36,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "title"
+  },
+  {
+   "prop": "note",
+   "max_chars": 36,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "note"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "inputs": [
+  {
+   "prop": "thumbnail",
+   "type": "image"
+  }
+ ],
+ "props": {
+  "theme": "cinematic",
+  "kicker": "NEXT CHAPTER",
+  "title": "The Last Battle",
+  "titleAlt": "نغني معا",
+  "note": "Premieres Friday",
+  "thumbnail": ""
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "kicker": "تحت ضوء",
+   "title": "القمر حتى",
+   "titleAlt": "",
+   "note": "يعود الصباح من",
+   "thumbnail": ""
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Bebas Neue",
+  "EB Garamond",
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic",
+  "Playfair Display"
+ ],
+ "origin": {
+  "from": "prototype asset-gallery #12 (next-teaser)",
+  "date": "2026-10-10"
+ }
+}

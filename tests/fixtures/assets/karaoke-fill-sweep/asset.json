@@ -1,0 +1,504 @@
+{
+ "format_version": "1",
+ "id": "karaoke-fill-sweep",
+ "name": "Karaoke fill, sweep",
+ "version": 1,
+ "category": "captions",
+ "subcategory": "karaoke",
+ "kind": "caption",
+ "line": "One line at a time at the bottom; it rises in before it is sung and each word fills in reading order as it is sung, with a soft glow on the word being sung.",
+ "tags": [
+  "karaoke",
+  "fill",
+  "glow",
+  "rtl"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "any"
+ ],
+ "duration": {
+  "default_ms": 15000,
+  "min_ms": 1000,
+  "max_ms": 3600000
+ },
+ "poster_ms": 3000,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": {
+   "anchor": "bottom-center",
+   "box": [
+    0.04,
+    0.6,
+    0.92,
+    0.36
+   ]
+  }
+ },
+ "slots": [
+  "whole-video"
+ ],
+ "when": "Over every sung line of a song (the timed words from the consumer's timeline).",
+ "text_fields": [
+  {
+   "prop": "lines[].text",
+   "max_chars": 90,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "caption"
+  },
+  {
+   "prop": "lines[].words[].text",
+   "max_chars": 40,
+   "scripts": [
+    "Latn",
+    "Arab"
+   ],
+   "role": "word"
+  }
+ ],
+ "scripts": [
+  "Latn",
+  "Arab"
+ ],
+ "props": {
+  "theme": "cinematic",
+  "lines": [
+   {
+    "start_ms": 680,
+    "end_ms": 5600,
+    "text": "من في معا تحت ضوء من جديد",
+    "words": [
+     {
+      "text": "من",
+      "start_ms": 680,
+      "end_ms": 1380
+     },
+     {
+      "text": "في",
+      "start_ms": 1380,
+      "end_ms": 1800
+     },
+     {
+      "text": "معا",
+      "start_ms": 1800,
+      "end_ms": 2480
+     },
+     {
+      "text": "تحت",
+      "start_ms": 2480,
+      "end_ms": 3760
+     },
+     {
+      "text": "ضوء",
+      "start_ms": 3760,
+      "end_ms": 4500
+     },
+     {
+      "text": "من",
+      "start_ms": 4500,
+      "end_ms": 4880
+     },
+     {
+      "text": "جديد",
+      "start_ms": 4880,
+      "end_ms": 5600
+     }
+    ]
+   },
+   {
+    "start_ms": 5600,
+    "end_ms": 10280,
+    "text": "معا من في ضوء حتى من جديد",
+    "words": [
+     {
+      "text": "معا",
+      "start_ms": 5600,
+      "end_ms": 6180
+     },
+     {
+      "text": "من",
+      "start_ms": 6180,
+      "end_ms": 6880
+     },
+     {
+      "text": "في",
+      "start_ms": 6180,
+      "end_ms": 6880
+     },
+     {
+      "text": "ضوء",
+      "start_ms": 6880,
+      "end_ms": 7780
+     },
+     {
+      "text": "حتى",
+      "start_ms": 7780,
+      "end_ms": 8820
+     },
+     {
+      "text": "من",
+      "start_ms": 8820,
+      "end_ms": 9580
+     },
+     {
+      "text": "جديد",
+      "start_ms": 9580,
+      "end_ms": 10280
+     }
+    ]
+   },
+   {
+    "start_ms": 10440,
+    "end_ms": 15020,
+    "text": "على في الليل معا من جديد",
+    "words": [
+     {
+      "text": "على",
+      "start_ms": 10440,
+      "end_ms": 10920
+     },
+     {
+      "text": "في",
+      "start_ms": 10920,
+      "end_ms": 11560
+     },
+     {
+      "text": "الليل",
+      "start_ms": 11560,
+      "end_ms": 12980
+     },
+     {
+      "text": "معا",
+      "start_ms": 12980,
+      "end_ms": 13720
+     },
+     {
+      "text": "من",
+      "start_ms": 13720,
+      "end_ms": 15020
+     },
+     {
+      "text": "جديد",
+      "start_ms": 13720,
+      "end_ms": 15020
+     }
+    ]
+   }
+  ]
+ },
+ "samples": {
+  "rtl": {
+   "theme": "cinematic",
+   "lines": [
+    {
+     "start_ms": 680,
+     "end_ms": 5600,
+     "text": "من في معا تحت ضوء من جديد",
+     "words": [
+      {
+       "text": "من",
+       "start_ms": 680,
+       "end_ms": 1380
+      },
+      {
+       "text": "في",
+       "start_ms": 1380,
+       "end_ms": 1800
+      },
+      {
+       "text": "معا",
+       "start_ms": 1800,
+       "end_ms": 2480
+      },
+      {
+       "text": "تحت",
+       "start_ms": 2480,
+       "end_ms": 3760
+      },
+      {
+       "text": "ضوء",
+       "start_ms": 3760,
+       "end_ms": 4500
+      },
+      {
+       "text": "من",
+       "start_ms": 4500,
+       "end_ms": 4880
+      },
+      {
+       "text": "جديد",
+       "start_ms": 4880,
+       "end_ms": 5600
+      }
+     ]
+    },
+    {
+     "start_ms": 5600,
+     "end_ms": 10280,
+     "text": "معا من في ضوء حتى من جديد",
+     "words": [
+      {
+       "text": "معا",
+       "start_ms": 5600,
+       "end_ms": 6180
+      },
+      {
+       "text": "من",
+       "start_ms": 6180,
+       "end_ms": 6880
+      },
+      {
+       "text": "في",
+       "start_ms": 6180,
+       "end_ms": 6880
+      },
+      {
+       "text": "ضوء",
+       "start_ms": 6880,
+       "end_ms": 7780
+      },
+      {
+       "text": "حتى",
+       "start_ms": 7780,
+       "end_ms": 8820
+      },
+      {
+       "text": "من",
+       "start_ms": 8820,
+       "end_ms": 9580
+      },
+      {
+       "text": "جديد",
+       "start_ms": 9580,
+       "end_ms": 10280
+      }
+     ]
+    },
+    {
+     "start_ms": 10440,
+     "end_ms": 15020,
+     "text": "على في الليل معا من جديد",
+     "words": [
+      {
+       "text": "على",
+       "start_ms": 10440,
+       "end_ms": 10920
+      },
+      {
+       "text": "في",
+       "start_ms": 10920,
+       "end_ms": 11560
+      },
+      {
+       "text": "الليل",
+       "start_ms": 11560,
+       "end_ms": 12980
+      },
+      {
+       "text": "معا",
+       "start_ms": 12980,
+       "end_ms": 13720
+      },
+      {
+       "text": "من",
+       "start_ms": 13720,
+       "end_ms": 15020
+      },
+      {
+       "text": "جديد",
+       "start_ms": 13720,
+       "end_ms": 15020
+      }
+     ]
+    }
+   ]
+  },
+  "en": {
+   "theme": "cinematic",
+   "lines": [
+    {
+     "start_ms": 680,
+     "end_ms": 5600,
+     "text": "When nine months passed, you were born like a lion!",
+     "words": [
+      {
+       "text": "When",
+       "start_ms": 680,
+       "end_ms": 1156
+      },
+      {
+       "text": "nine",
+       "start_ms": 1156,
+       "end_ms": 1632
+      },
+      {
+       "text": "months",
+       "start_ms": 1632,
+       "end_ms": 2267
+      },
+      {
+       "text": "passed,",
+       "start_ms": 2267,
+       "end_ms": 2981
+      },
+      {
+       "text": "you",
+       "start_ms": 2981,
+       "end_ms": 3378
+      },
+      {
+       "text": "were",
+       "start_ms": 3378,
+       "end_ms": 3854
+      },
+      {
+       "text": "born",
+       "start_ms": 3854,
+       "end_ms": 4330
+      },
+      {
+       "text": "like",
+       "start_ms": 4330,
+       "end_ms": 4806
+      },
+      {
+       "text": "a",
+       "start_ms": 4806,
+       "end_ms": 5045
+      },
+      {
+       "text": "lion!",
+       "start_ms": 5045,
+       "end_ms": 5600
+      }
+     ]
+    },
+    {
+     "start_ms": 5600,
+     "end_ms": 10280,
+     "text": "A body full of strength, a heart like an arrow!",
+     "words": [
+      {
+       "text": "A",
+       "start_ms": 5600,
+       "end_ms": 5842
+      },
+      {
+       "text": "body",
+       "start_ms": 5842,
+       "end_ms": 6326
+      },
+      {
+       "text": "full",
+       "start_ms": 6326,
+       "end_ms": 6810
+      },
+      {
+       "text": "of",
+       "start_ms": 6810,
+       "end_ms": 7133
+      },
+      {
+       "text": "strength,",
+       "start_ms": 7133,
+       "end_ms": 8021
+      },
+      {
+       "text": "a",
+       "start_ms": 8021,
+       "end_ms": 8263
+      },
+      {
+       "text": "heart",
+       "start_ms": 8263,
+       "end_ms": 8828
+      },
+      {
+       "text": "like",
+       "start_ms": 8828,
+       "end_ms": 9312
+      },
+      {
+       "text": "an",
+       "start_ms": 9312,
+       "end_ms": 9634
+      },
+      {
+       "text": "arrow!",
+       "start_ms": 9634,
+       "end_ms": 10280
+      }
+     ]
+    },
+    {
+     "start_ms": 10440,
+     "end_ms": 15020,
+     "text": "You became ten years old, a mighty hero...",
+     "words": [
+      {
+       "text": "You",
+       "start_ms": 10440,
+       "end_ms": 10889
+      },
+      {
+       "text": "became",
+       "start_ms": 10889,
+       "end_ms": 11607
+      },
+      {
+       "text": "ten",
+       "start_ms": 11607,
+       "end_ms": 12056
+      },
+      {
+       "text": "years",
+       "start_ms": 12056,
+       "end_ms": 12685
+      },
+      {
+       "text": "old,",
+       "start_ms": 12685,
+       "end_ms": 13224
+      },
+      {
+       "text": "a",
+       "start_ms": 13224,
+       "end_ms": 13493
+      },
+      {
+       "text": "mighty",
+       "start_ms": 13493,
+       "end_ms": 14212
+      },
+      {
+       "text": "hero...",
+       "start_ms": 14212,
+       "end_ms": 15020
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "licence": "Apache-2.0",
+ "fonts": [
+  "Inter",
+  "Montserrat",
+  "Noto Naskh Arabic"
+ ],
+ "origin": {
+  "from": "prototype caption-gallery s01 karaoke-fill, refined as k01 gold sweep",
+  "date": "2026-10-10"
+ }
+}

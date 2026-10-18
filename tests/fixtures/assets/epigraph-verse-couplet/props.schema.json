@@ -1,0 +1,64 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "theme": {
+   "default": "cinematic",
+   "description": "the look (design §4.1)",
+   "type": "string",
+   "enum": [
+    "cinematic",
+    "dark",
+    "documentary",
+    "warm",
+    "pop"
+   ]
+  },
+  "accent": {
+   "description": "replaces the theme's accent colour",
+   "type": "string",
+   "pattern": "^#[0-9a-fA-F]{6}$"
+  },
+  "verse": {
+   "type": "array",
+   "prefixItems": [
+    {
+     "type": "string",
+     "maxLength": 40,
+     "description": "the first half-line"
+    },
+    {
+     "type": "string",
+     "maxLength": 40,
+     "description": "the second half-line"
+    }
+   ],
+   "items": false,
+   "minItems": 2,
+   "maxItems": 2,
+   "description": "a couplet: two half-lines set side by side, in reading order"
+  },
+  "translation": {
+   "default": "",
+   "type": "string",
+   "maxLength": 140,
+   "description": "a translation or gloss under the verse"
+  },
+  "attribution": {
+   "default": "",
+   "type": "string",
+   "maxLength": 40,
+   "description": "the poet and the work"
+  },
+  "attributionAlt": {
+   "default": "",
+   "type": "string",
+   "maxLength": 40,
+   "description": "the attribution in a second language"
+  }
+ },
+ "required": [
+  "verse"
+ ],
+ "additionalProperties": false
+}

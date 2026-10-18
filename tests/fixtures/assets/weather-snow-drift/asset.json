@@ -1,0 +1,64 @@
+{
+ "format_version": "1",
+ "id": "weather-snow-drift",
+ "name": "Snow, drift",
+ "version": 1,
+ "category": "atmospherics",
+ "subcategory": "weather",
+ "kind": "loop",
+ "line": "Snowflakes in three depths fall and sway gently, the nearest ones large and soft.",
+ "tags": [
+  "snow",
+  "winter",
+  "flakes",
+  "falling",
+  "cold"
+ ],
+ "themes": [
+  "cinematic",
+  "dark",
+  "documentary",
+  "warm",
+  "pop"
+ ],
+ "moods": [
+  "calm",
+  "nostalgic",
+  "tender",
+  "melancholic"
+ ],
+ "duration": {
+  "default_ms": 10000,
+  "min_ms": 10000,
+  "max_ms": 10000
+ },
+ "poster_ms": 5000,
+ "aspects": [
+  "16:9"
+ ],
+ "regions": {
+  "16:9": "full"
+ },
+ "slots": [
+  "whole-video"
+ ],
+ "when": "Winter, holiday and quiet sections; whole sections.",
+ "quiet_only": false,
+ "clear_frame": false,
+ "platforms": [],
+ "text_fields": [],
+ "scripts": [],
+ "languages": [],
+ "inputs": [],
+ "props": {
+  "theme": "cinematic",
+  "intensity": 1
+ },
+ "licence": "Apache-2.0",
+ "fonts": [],
+ "media": [],
+ "origin": {
+  "from": "new (M2)",
+  "date": "2026-10-10"
+ }
+}

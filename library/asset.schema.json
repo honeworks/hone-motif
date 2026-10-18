@@ -1,0 +1,560 @@
+{
+ "$defs": {
+  "BoxRegion": {
+   "additionalProperties": false,
+   "description": "Where an asset draws, as fractions of the frame: [x, y, width, height].",
+   "properties": {
+    "anchor": {
+     "title": "Anchor",
+     "type": "string"
+    },
+    "box": {
+     "maxItems": 4,
+     "minItems": 4,
+     "prefixItems": [
+      {
+       "type": "number"
+      },
+      {
+       "type": "number"
+      },
+      {
+       "type": "number"
+      },
+      {
+       "type": "number"
+      }
+     ],
+     "title": "Box",
+     "type": "array"
+    }
+   },
+   "required": [
+    "anchor",
+    "box"
+   ],
+   "title": "BoxRegion",
+   "type": "object"
+  },
+  "Duration": {
+   "additionalProperties": false,
+   "properties": {
+    "default_ms": {
+     "minimum": 0,
+     "title": "Default Ms",
+     "type": "integer"
+    },
+    "min_ms": {
+     "minimum": 0,
+     "title": "Min Ms",
+     "type": "integer"
+    },
+    "max_ms": {
+     "minimum": 0,
+     "title": "Max Ms",
+     "type": "integer"
+    }
+   },
+   "required": [
+    "default_ms",
+    "min_ms",
+    "max_ms"
+   ],
+   "title": "Duration",
+   "type": "object"
+  },
+  "InputSpec": {
+   "additionalProperties": false,
+   "properties": {
+    "prop": {
+     "title": "Prop",
+     "type": "string"
+    },
+    "type": {
+     "const": "image",
+     "title": "Type",
+     "type": "string"
+    }
+   },
+   "required": [
+    "prop",
+    "type"
+   ],
+   "title": "InputSpec",
+   "type": "object"
+  },
+  "Media": {
+   "additionalProperties": false,
+   "properties": {
+    "file": {
+     "title": "File",
+     "type": "string"
+    },
+    "licence": {
+     "const": "CC0-1.0",
+     "title": "Licence",
+     "type": "string"
+    },
+    "source": {
+     "minLength": 1,
+     "title": "Source",
+     "type": "string"
+    }
+   },
+   "required": [
+    "file",
+    "licence",
+    "source"
+   ],
+   "title": "Media",
+   "type": "object"
+  },
+  "Origin": {
+   "additionalProperties": false,
+   "properties": {
+    "from": {
+     "minLength": 1,
+     "title": "From",
+     "type": "string"
+    },
+    "date": {
+     "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+     "title": "Date",
+     "type": "string"
+    }
+   },
+   "required": [
+    "from",
+    "date"
+   ],
+   "title": "Origin",
+   "type": "object"
+  },
+  "Repeat": {
+   "additionalProperties": false,
+   "properties": {
+    "max_per_video": {
+     "anyOf": [
+      {
+       "minimum": 1,
+       "type": "integer"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Max Per Video"
+    },
+    "max_per_section": {
+     "anyOf": [
+      {
+       "minimum": 1,
+       "type": "integer"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Max Per Section"
+    },
+    "min_gap_ms": {
+     "anyOf": [
+      {
+       "minimum": 0,
+       "type": "integer"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Min Gap Ms"
+    }
+   },
+   "title": "Repeat",
+   "type": "object"
+  },
+  "TextField": {
+   "additionalProperties": false,
+   "properties": {
+    "prop": {
+     "title": "Prop",
+     "type": "string"
+    },
+    "max_chars": {
+     "minimum": 1,
+     "title": "Max Chars",
+     "type": "integer"
+    },
+    "scripts": {
+     "items": {
+      "type": "string"
+     },
+     "minItems": 1,
+     "title": "Scripts",
+     "type": "array"
+    },
+    "role": {
+     "title": "Role",
+     "type": "string"
+    }
+   },
+   "required": [
+    "prop",
+    "max_chars",
+    "scripts",
+    "role"
+   ],
+   "title": "TextField",
+   "type": "object"
+  },
+  "Transition": {
+   "additionalProperties": false,
+   "properties": {
+    "cut_ms": {
+     "minimum": 0,
+     "title": "Cut Ms",
+     "type": "integer"
+    },
+    "fx_blend": {
+     "enum": [
+      "normal",
+      "screen"
+     ],
+     "title": "Fx Blend",
+     "type": "string"
+    }
+   },
+   "required": [
+    "cut_ms",
+    "fx_blend"
+   ],
+   "title": "Transition",
+   "type": "object"
+  },
+  "Window": {
+   "additionalProperties": false,
+   "description": "Where a placement may start: `from` the video's start or end, between two offsets (design §2.5).\n\nFrom the start: earliest_ms <= start <= latest_ms. From the end, offsets count back from the end, so\nearliest_ms >= latest_ms: an end screen has earliest_ms 20000 and latest_ms 5000.",
+   "properties": {
+    "from": {
+     "enum": [
+      "start",
+      "end"
+     ],
+     "title": "From",
+     "type": "string"
+    },
+    "earliest_ms": {
+     "minimum": 0,
+     "title": "Earliest Ms",
+     "type": "integer"
+    },
+    "latest_ms": {
+     "minimum": 0,
+     "title": "Latest Ms",
+     "type": "integer"
+    }
+   },
+   "required": [
+    "from",
+    "earliest_ms",
+    "latest_ms"
+   ],
+   "title": "Window",
+   "type": "object"
+  }
+ },
+ "additionalProperties": false,
+ "description": "One asset: a distinct design and its metadata (design §2); load it with `Asset.load(folder)`.",
+ "properties": {
+  "format_version": {
+   "const": "1",
+   "title": "Format Version",
+   "type": "string"
+  },
+  "id": {
+   "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+   "title": "Id",
+   "type": "string"
+  },
+  "name": {
+   "maxLength": 80,
+   "minLength": 1,
+   "title": "Name",
+   "type": "string"
+  },
+  "version": {
+   "minimum": 1,
+   "title": "Version",
+   "type": "integer"
+  },
+  "category": {
+   "title": "Category",
+   "type": "string"
+  },
+  "subcategory": {
+   "title": "Subcategory",
+   "type": "string"
+  },
+  "kind": {
+   "enum": [
+    "overlay",
+    "scene",
+    "transition",
+    "background",
+    "loop",
+    "caption"
+   ],
+   "title": "Kind",
+   "type": "string"
+  },
+  "line": {
+   "minLength": 1,
+   "title": "Line",
+   "type": "string"
+  },
+  "tags": {
+   "items": {
+    "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+    "type": "string"
+   },
+   "title": "Tags",
+   "type": "array"
+  },
+  "themes": {
+   "items": {
+    "type": "string"
+   },
+   "minItems": 1,
+   "title": "Themes",
+   "type": "array"
+  },
+  "moods": {
+   "items": {
+    "type": "string"
+   },
+   "minItems": 1,
+   "title": "Moods",
+   "type": "array"
+  },
+  "duration": {
+   "$ref": "#/$defs/Duration"
+  },
+  "poster_ms": {
+   "minimum": 0,
+   "title": "Poster Ms",
+   "type": "integer"
+  },
+  "aspects": {
+   "items": {
+    "type": "string"
+   },
+   "minItems": 1,
+   "title": "Aspects",
+   "type": "array"
+  },
+  "regions": {
+   "additionalProperties": {
+    "anyOf": [
+     {
+      "const": "full",
+      "type": "string"
+     },
+     {
+      "$ref": "#/$defs/BoxRegion"
+     }
+    ]
+   },
+   "title": "Regions",
+   "type": "object"
+  },
+  "over_footage": {
+   "default": false,
+   "title": "Over Footage",
+   "type": "boolean"
+  },
+  "slots": {
+   "items": {
+    "enum": [
+     "opening",
+     "closing",
+     "end-screen",
+     "section-start",
+     "cut",
+     "anywhere",
+     "whole-video"
+    ],
+    "type": "string"
+   },
+   "minItems": 1,
+   "title": "Slots",
+   "type": "array"
+  },
+  "when": {
+   "minLength": 1,
+   "title": "When",
+   "type": "string"
+  },
+  "window": {
+   "anyOf": [
+    {
+     "$ref": "#/$defs/Window"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null
+  },
+  "ends_with_video": {
+   "default": false,
+   "title": "Ends With Video",
+   "type": "boolean"
+  },
+  "min_video_ms": {
+   "anyOf": [
+    {
+     "minimum": 0,
+     "type": "integer"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null,
+   "title": "Min Video Ms"
+  },
+  "repeat": {
+   "$ref": "#/$defs/Repeat",
+   "default": {
+    "max_per_video": null,
+    "max_per_section": null,
+    "min_gap_ms": null
+   }
+  },
+  "quiet_only": {
+   "default": false,
+   "title": "Quiet Only",
+   "type": "boolean"
+  },
+  "clear_frame": {
+   "default": false,
+   "title": "Clear Frame",
+   "type": "boolean"
+  },
+  "platforms": {
+   "default": [],
+   "items": {
+    "type": "string"
+   },
+   "title": "Platforms",
+   "type": "array"
+  },
+  "text_fields": {
+   "default": [],
+   "items": {
+    "$ref": "#/$defs/TextField"
+   },
+   "title": "Text Fields",
+   "type": "array"
+  },
+  "scripts": {
+   "default": [],
+   "items": {
+    "type": "string"
+   },
+   "title": "Scripts",
+   "type": "array"
+  },
+  "languages": {
+   "default": [],
+   "items": {
+    "type": "string"
+   },
+   "title": "Languages",
+   "type": "array"
+  },
+  "inputs": {
+   "default": [],
+   "items": {
+    "$ref": "#/$defs/InputSpec"
+   },
+   "title": "Inputs",
+   "type": "array"
+  },
+  "props": {
+   "additionalProperties": true,
+   "title": "Props",
+   "type": "object"
+  },
+  "samples": {
+   "additionalProperties": {
+    "additionalProperties": true,
+    "type": "object"
+   },
+   "default": {},
+   "title": "Samples",
+   "type": "object"
+  },
+  "transition": {
+   "anyOf": [
+    {
+     "$ref": "#/$defs/Transition"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null
+  },
+  "licence": {
+   "title": "Licence",
+   "type": "string"
+  },
+  "fonts": {
+   "default": [],
+   "items": {
+    "type": "string"
+   },
+   "title": "Fonts",
+   "type": "array"
+  },
+  "media": {
+   "default": [],
+   "items": {
+    "$ref": "#/$defs/Media"
+   },
+   "title": "Media",
+   "type": "array"
+  },
+  "origin": {
+   "$ref": "#/$defs/Origin"
+  }
+ },
+ "required": [
+  "format_version",
+  "id",
+  "name",
+  "version",
+  "category",
+  "subcategory",
+  "kind",
+  "line",
+  "tags",
+  "themes",
+  "moods",
+  "duration",
+  "poster_ms",
+  "aspects",
+  "regions",
+  "slots",
+  "when",
+  "props",
+  "licence",
+  "origin"
+ ],
+ "title": "Asset",
+ "type": "object"
+}
