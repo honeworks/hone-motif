@@ -11,6 +11,7 @@ from typing import Any
 import pytest
 
 import hone_motif as hm
+from hone_motif.gallery import sample_brand
 from hone_motif.render import LAYOUT, _size  # pyright: ignore[reportPrivateUsage]
 from hone_motif.testing import FakeRenderer
 
@@ -32,7 +33,7 @@ def test_a_gallery_without_renders_lists_every_tile(lib: hm.Library, cache: hm.C
     index = hm.build_gallery(lib, cache=cache, renderer=FakeRenderer())
     assert index == cache.root / "gallery" / "index.html"
     data = data_of(index)
-    assert len(data["tiles"]) == sum(len(a.themes) for a in lib.assets.values())
+    assert len(data["tiles"]) == sum(len(a.aspects) * (len(a.themes) + 1) for a in lib.assets.values())
     assert all(t["poster"] is None for t in data["tiles"])
     assert set(data["assets"]) == set(lib.assets)
     assert (
@@ -111,7 +112,15 @@ def test_an_asset_gets_a_tile_per_aspect(lib_copy: Path, tmp_path: Path) -> None
     )
     tiles = [t for t in data_of(index)["tiles"] if t["asset"] == "epigraph-verse-couplet"]
     assert sorted({t["aspect"] for t in tiles}) == ["16:9", "9:16"]
-    assert len(tiles) == 10
+    assert len(tiles) == 12  # 5 themes and the brand, in 2 aspects
     portrait = next(t for t in tiles if t["aspect"] == "9:16")
     record = json.loads((index.parent / portrait["render_json"]).read_text(encoding="utf-8"))
     assert (record["width"], record["height"]) == (540, 960)
+
+
+def test_each_asset_has_a_brand_tile_in_its_first_theme(lib: hm.Library, cache: hm.Cache) -> None:
+    """Change 0003: the sample brand over the first theme, one tile per aspect."""
+    data = data_of(hm.build_gallery(lib, cache=cache, renderer=FakeRenderer()))
+    brand = [t for t in data["tiles"] if t["theme"] == "brand"]
+    assert len(brand) == sum(len(a.aspects) for a in lib.assets.values())
+    assert sample_brand(lib.root)["accent"] == "#ff7a1a"  # the same values as shared/brand.ts

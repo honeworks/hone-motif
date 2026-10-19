@@ -302,3 +302,23 @@ def test_a_reply_that_is_not_a_list_is_one_error(lib: hm.Library, reply: Any) ->
     assert [p.code for p in report.errors] == ["bad-placement"]
     assert "a list of placements" in report.errors[0].message
     assert report.placements == []
+
+
+def test_a_low_contrast_brand_is_a_placement_warning(lib: hm.Library) -> None:
+    """Change 0003: the consumer decides, so the reply still passes."""
+    asset = next(a for a in lib.assets.values() if a.kind == "overlay")
+    grey = {"bg": "#777777", "ink": "#888888"}
+    report = hm.check_placements(
+        [
+            {
+                "asset": asset.id,
+                "start_ms": 0,
+                "duration_ms": asset.duration.default_ms,
+                "props": {**asset.props, "brand": grey},
+                "why": "test",
+            }
+        ],
+        video(),
+        lib,
+    )
+    assert any(w.code == "brand-low-contrast" and w.index == 0 for w in report.warnings)

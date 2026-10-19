@@ -1,5 +1,29 @@
 {
  "big-title-clean-rise": {
+  "brand": {
+   "phash": "90926f6d92926d6d",
+   "rgb": [
+    17,
+    45,
+    50
+   ]
+  },
+  "brand@1:1": {
+   "phash": "94b46b4b94b46b4b",
+   "rgb": [
+    17,
+    45,
+    50
+   ]
+  },
+  "brand@9:16": {
+   "phash": "94b06bcb94b46b4b",
+   "rgb": [
+    16,
+    44,
+    48
+   ]
+  },
   "cinematic": {
    "phash": "d3c22c3c93c36d3c",
    "rgb": [
@@ -130,6 +154,30 @@
   }
  },
  "matte-wipe-soft-edge": {
+  "brand": {
+   "phash": "c1d33e39c6ca16d8",
+   "rgb": [
+    77,
+    67,
+    58
+   ]
+  },
+  "brand@1:1": {
+   "phash": "c4d33e39c7cc11d8",
+   "rgb": [
+    78,
+    67,
+    57
+   ]
+  },
+  "brand@9:16": {
+   "phash": "c5b43f3ce3ce1882",
+   "rgb": [
+    81,
+    67,
+    56
+   ]
+  },
   "cinematic": {
    "phash": "c1d33e39c6ca16d8",
    "rgb": [
@@ -252,6 +300,30 @@
   }
  },
  "name-title-clean-bar": {
+  "brand": {
+   "phash": "949d6a6b39c21fe0",
+   "rgb": [
+    30,
+    31,
+    30
+   ]
+  },
+  "brand@1:1": {
+   "phash": "90976a6b37ca37c0",
+   "rgb": [
+    29,
+    30,
+    28
+   ]
+  },
+  "brand@9:16": {
+   "phash": "94956a6bf18e66d0",
+   "rgb": [
+    29,
+    30,
+    29
+   ]
+  },
   "cinematic": {
    "phash": "91966b6b1ce21ee1",
    "rgb": [

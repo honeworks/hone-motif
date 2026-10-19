@@ -1,10 +1,11 @@
 // Writes what the library derives from its sources (decision D-002): every asset's props.schema.json from
-// its zod schema, src/Root.tsx (the registry) from the asset.json files, and themes.json from
-// shared/themes.ts. With --check it writes nothing and fails when any of them is out of date, or when an
+// its zod schema, src/Root.tsx (the registry) from the asset.json files, themes.json from shared/themes.ts
+// and sample-brand.json from shared/brand.ts (change 0003). With --check it writes nothing and fails when any of them is out of date, or when an
 // asset's default props or samples do not pass its schema (design §11).
 import fs from 'node:fs';
 import path from 'node:path';
 import {z} from 'zod';
+import {SAMPLE_BRAND} from '../shared/brand.ts';
 import {THEMES} from '../shared/themes.ts';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
@@ -55,6 +56,7 @@ for (const id of assetIds()) {
 }
 outputs.set('src/Root.tsx', rootSource(metas));
 outputs.set('themes.json', json(THEMES));
+outputs.set('sample-brand.json', json(SAMPLE_BRAND));
 
 const check = process.argv.includes('--check');
 for (const [file, content] of outputs) {

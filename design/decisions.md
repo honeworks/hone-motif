@@ -281,3 +281,13 @@ D-011, D-012).
 - **Why:** a project's assets need the same registry, shared code and scripts to export, check and
   render; one copy is the simplest way to get all of it, and the starter assets show the authoring rules.
 
+
+## D-032: brand tokens as built  (2026-10-19)
+
+- **Choice:** change 0003 as proposed, with three details settled in the build. The contrast warning is
+  `brand_warnings(props)` and a placement warning, since `check_props` returns only errors. The brand
+  posters are named `brand` (and `brand@<aspect>`) like the theme posters, so the stills, the gallery and
+  the golden file need no second naming rule. The panel and over-footage tokens follow the brand only
+  when the brand's `bg` and the theme's are on the same side of mid-grey (luma 128).
+- **Why:** keeps `check_props` a list of reasons to refuse, and one naming rule everywhere; the
+  same-side rule is the proposal's "light theme, dark brand keeps the theme's panels" in one test.

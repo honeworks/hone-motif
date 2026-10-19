@@ -105,3 +105,57 @@ def test_an_asset_without_a_schema_fails_every_check(lib_copy: Path) -> None:
     (lib_copy / "assets" / PILL / "props.schema.json").unlink()
     [problem] = hm.check_props(hm.Asset.load(lib_copy / "assets" / PILL), {"anything": 1})
     assert problem.code == "no-props-schema"
+
+
+# --- brand tokens (change 0003) ---
+
+BRAND = {"bg": "#101114", "ink": "#f4f1ea", "accent": "#e8a33d", "fonts": {"display": "Montserrat"}}
+
+
+def test_a_brand_with_registry_fonts_passes(shipped: hm.Library) -> None:
+    for asset in shipped.assets.values():
+        assert hm.check_props(asset, {**asset.props, "brand": BRAND}) == [], asset.id
+
+
+def test_a_brand_font_outside_the_registry_is_refused(shipped: hm.Library) -> None:
+    asset = next(iter(shipped.assets.values()))
+    [problem] = hm.check_props(asset, {**asset.props, "brand": {"fonts": {"body": "Comic Sans MS"}}})
+    assert (problem.code, problem.field) == ("brand-font-unknown", "brand.fonts.body")
+    assert "Montserrat" in problem.message  # it names the registry's families
+
+
+def test_a_brand_with_a_bad_colour_or_key_is_refused(shipped: hm.Library) -> None:
+    asset = next(iter(shipped.assets.values()))
+    assert hm.check_props(asset, {**asset.props, "brand": {"ink": "white"}})
+    assert hm.check_props(asset, {**asset.props, "brand": {"glow": "#ffffff"}})
+
+
+def test_low_contrast_is_a_warning_not_a_problem(shipped: hm.Library) -> None:
+    asset = next(iter(shipped.assets.values()))
+    grey = {"bg": "#777777", "ink": "#888888"}
+    assert hm.check_props(asset, {**asset.props, "brand": grey}) == []
+    [warning] = hm.brand_warnings({"brand": grey}, asset.id)
+    assert (warning.code, warning.field) == ("brand-low-contrast", "brand.ink")
+    assert hm.brand_warnings({"brand": BRAND}) == []
+    assert hm.brand_warnings({}) == []
+
+
+def test_contrast_ratio() -> None:
+    from hone_motif.props import contrast  # noqa: PLC0415
+
+    assert round(contrast("#000000", "#ffffff"), 1) == 21.0
+    assert contrast("#123456", "#123456") == 1.0
+
+
+def test_the_brand_is_in_the_key_only_when_given(shipped: hm.Library) -> None:
+    from hone_motif.render import key_inputs, plan  # noqa: PLC0415
+    from hone_motif.testing import FakeRenderer  # noqa: PLC0415
+
+    asset = next(iter(shipped.assets.values()))
+    plain = key_inputs(plan(asset, dict(asset.props)), FakeRenderer())
+    branded = key_inputs(plan(asset, {**asset.props, "brand": BRAND}), FakeRenderer())
+    assert "brand" not in plain["props"]  # no default is filled in, so old props keep their key
+    assert branded["props"]["brand"] == BRAND
+    assert {k: v for k, v in branded.items() if k != "props"} == {
+        k: v for k, v in plain.items() if k != "props"
+    }

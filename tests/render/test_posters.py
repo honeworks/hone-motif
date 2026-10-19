@@ -37,7 +37,12 @@ MAX_DISTANCE = 6  # of 64 bits (decision D-007)
 MAX_TEXT_DISTANCE = 24  # of 256 bits
 MAX_COLOUR = 12  # per channel, of 255
 UPDATE = os.environ.get("HONE_MOTIF_UPDATE_GOLDEN") == "1"
-POSTERS = [(a.id, theme, aspect) for a in LIB.assets.values() for aspect in a.aspects for theme in a.themes]
+POSTERS = [
+    (a.id, theme, aspect)
+    for a in LIB.assets.values()
+    for aspect in a.aspects
+    for theme in [*a.themes, "brand"]  # brand: the first theme under the sample brand (change 0003)
+]
 RTL = [a.id for a in LIB.assets.values() if RTL_SCRIPTS.intersection(a.scripts) and "rtl" in a.samples]
 Golden = dict[str, dict[str, dict[str, Any]]]
 
@@ -55,7 +60,10 @@ def write_golden() -> Iterator[None]:
     if UPDATE:  # rewrite what this run checked; keep what it did not run (e.g. with -k)
         merged = {a: {**_golden().get(a, {}), **FOUND.get(a, {})} for a in LIB.assets}
         names = {
-            a.id: {*(_name(t, x) for x in a.aspects for t in a.themes), *(["rtl"] if a.id in RTL else [])}
+            a.id: {
+                *(_name(t, x) for x in a.aspects for t in [*a.themes, "brand"]),
+                *(["rtl"] if a.id in RTL else []),
+            }
             for a in LIB.assets.values()
         }
         ordered = {a: {n: merged[a][n] for n in sorted(merged[a]) if n in names[a]} for a in sorted(merged)}
@@ -134,6 +142,20 @@ def test_the_themes_of_an_asset_look_different(stills: dict[str, Path]) -> None:
             ):
                 same.append(f"{asset.id} ({aspect})")
     assert same == [], f"every theme looks the same: {same}"
+
+
+def test_the_brand_changes_every_asset(stills: dict[str, Path]) -> None:
+    """Change 0003: an asset that ignored the brand would match its first theme's still."""
+    same = [
+        f"{a.id} ({x})"
+        for a in LIB.assets.values()
+        for x in a.aspects
+        if mean_difference(
+            _still(stills, a.id, _name(a.themes[0], x)), _still(stills, a.id, _name("brand", x)), fmt="rgb24"
+        )
+        == 0
+    ]
+    assert same == [], f"the brand changes nothing: {same}"
 
 
 @pytest.mark.parametrize("asset_id", RTL)

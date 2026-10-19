@@ -36,7 +36,9 @@ version; usable by any project that cuts a video.
 | `matte-wipe-soft-edge` | transition | a soft diagonal wipe with a thin accent line on its edge |
 | `big-title-clean-rise` | scene | a big title and a subtitle rising on the theme's backdrop |
 
-Each comes in five themes and in 16:9, 9:16 and 1:1, and sets Latin and Arabic-script text.
+Each comes in five themes and in 16:9, 9:16 and 1:1, and sets Latin and Arabic-script text. Any asset
+also takes a `brand`, a channel's own colours and registry fonts over its theme
+([examples/brand.py](examples/brand.py), design §4.3).
 
 ## Quickstart
 

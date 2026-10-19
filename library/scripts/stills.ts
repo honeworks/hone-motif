@@ -1,4 +1,5 @@
-// Poster stills of assets in every theme and aspect they support and their samples, without rendering
+// Poster stills of assets in every theme and aspect they support, their samples and the sample brand
+// (change 0003), without rendering
 // video (design §11, decision D-027). For authors: `npm run stills -- <out dir> [id or prefix* ...]` writes
 // <out>/<id>--<theme or sample>.jpg at half size (960x540 for 16:9; other aspects add @<aspect>, e.g.
 // <id>--warm@9:16.jpg); look at every one before committing an asset. The render suite and the gallery use
@@ -9,6 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {bundle} from '@remotion/bundler';
 import {openBrowser, renderStill, selectComposition} from '@remotion/renderer';
+import {SAMPLE_BRAND} from '../shared/brand.ts';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const TICKS = 32; // the registry's frame rate (src/Root.tsx)
@@ -45,6 +47,7 @@ for (const id of fs.readdirSync(path.join(ROOT, 'assets')).sort()) {
   const meta = JSON.parse(fs.readFileSync(path.join(ROOT, 'assets', id, 'asset.json'), 'utf8'));
   const sets: [string, Record<string, unknown>][] = meta.themes.map((t: string) => [t, {...meta.props, theme: t}]);
   for (const [name, props] of Object.entries(meta.samples ?? {})) sets.push([name, props as Record<string, unknown>]);
+  sets.push(['brand', {...meta.props, theme: meta.themes[0], brand: SAMPLE_BRAND}]); // change 0003
   for (const aspect of meta.aspects as string[]) {
     for (const [name, props] of sets) {
       stills.push({id, name: aspect === '16:9' ? name : `${name}@${aspect}`, aspect, props, frame: Math.round((meta.poster_ms * TICKS) / 1000)});

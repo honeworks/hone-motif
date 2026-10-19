@@ -2,9 +2,12 @@
 
 from __future__ import annotations
 
+import json
 import re
 import unicodedata
 from collections.abc import Iterator, Mapping
+from functools import cache
+from pathlib import Path
 from typing import Any, cast
 
 from jsonschema import Draft202012Validator
@@ -106,6 +109,7 @@ def check_props(asset: Asset, props: Mapping[str, Any]) -> list[Problem]:
         _schema_problem(e, asset)
         for e in sorted(validator.iter_errors(dict(props)), key=lambda e: list(e.absolute_path))  # pyright: ignore[reportUnknownMemberType]
     ]
+    problems += _brand_fonts(asset, props.get("brand"))
     for text_field in asset.text_fields:
         for where, value in values_at(props, text_field.prop):
             if not isinstance(value, str):
@@ -132,3 +136,77 @@ def fill_defaults(asset: Asset, props: Mapping[str, Any]) -> dict[str, Any]:
         if name not in full and isinstance(spec, dict) and "default" in spec:
             full[name] = spec["default"]
     return full
+
+
+# --- brand tokens (change 0003) ---
+
+
+@cache
+def registry_families(library: Path) -> frozenset[str]:
+    """The font families of a library's registry (fonts/fonts.json)."""
+    path = library / "fonts" / "fonts.json"
+    if not path.is_file():
+        return frozenset()
+    return frozenset(json.loads(path.read_text(encoding="utf-8")).get("fonts", {}))
+
+
+def _brand_fonts(asset: Asset, brand: object) -> list[Problem]:
+    """Every font a `brand` names must be in the library's registry (`brand-font-unknown`)."""
+    if not isinstance(brand, Mapping):
+        return []
+    fonts = cast(Mapping[str, Any], brand).get("fonts")
+    if not isinstance(fonts, Mapping):
+        return []
+    known = registry_families(asset.library_root)
+    return [
+        Problem(
+            code="brand-font-unknown",
+            asset=asset.id,
+            field=f"brand.fonts.{role}",
+            message=f"{family!r} is not in the font registry; use one of {', '.join(sorted(known))}",
+        )
+        for role, family in cast(Mapping[str, Any], fonts).items()
+        if isinstance(family, str) and family not in known
+    ]
+
+
+def _luminance(colour: str) -> float:
+    def channel(v: int) -> float:
+        c = v / 255
+        return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+
+    n = int(colour[1:7], 16)
+    r, g, b = (n >> 16) & 255, (n >> 8) & 255, n & 255
+    return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b)
+
+
+def contrast(a: str, b: str) -> float:
+    """The WCAG contrast ratio of two #rrggbb colours (1 to 21)."""
+    hi, lo = sorted((_luminance(a), _luminance(b)), reverse=True)
+    return (hi + 0.05) / (lo + 0.05)
+
+
+def brand_warnings(props: Mapping[str, Any], asset_id: str | None = None) -> list[Problem]:
+    """A brand whose ink is hard to read on its backdrop (under 4.5:1) gives `brand-low-contrast`: a
+    warning, the consumer decides (change 0003)."""
+    brand = props.get("brand")
+    if not isinstance(brand, Mapping):
+        return []
+    b = cast(Mapping[str, Any], brand)
+    ink, bg = b.get("ink"), b.get("bg")
+    if not (isinstance(ink, str) and isinstance(bg, str) and HEX.match(ink) and HEX.match(bg)):
+        return []
+    ratio = contrast(ink, bg)
+    if ratio >= 4.5:
+        return []
+    return [
+        Problem(
+            code="brand-low-contrast",
+            asset=asset_id,
+            field="brand.ink",
+            message=f"ink on the backdrop is {ratio:.1f}:1, under 4.5:1: text may be hard to read",
+        )
+    ]
+
+
+HEX = re.compile(r"^#[0-9a-fA-F]{6}$")

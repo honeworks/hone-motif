@@ -1,6 +1,8 @@
 // Building blocks for the assets' zod props schemas (decision D-002). Every asset takes `theme` (one of the
-// themes it supports) and an optional `accent`; text props carry their maximum length (design §2.6).
+// themes it supports), an optional `accent` and an optional `brand` (change 0003); text props carry their
+// maximum length (design §2.6).
 import {z} from 'zod';
+import {brandSchema} from './brand.ts';
 import {THEME_NAMES, type ThemeName} from './themes.ts';
 
 export const hex = z.string().regex(/^#[0-9a-fA-F]{6}$/).describe('a colour as #rrggbb');
@@ -9,6 +11,7 @@ export const hex = z.string().regex(/^#[0-9a-fA-F]{6}$/).describe('a colour as #
 export const base = (themes: readonly ThemeName[] = THEME_NAMES) => ({
   theme: z.enum(themes as [ThemeName, ...ThemeName[]]).default(themes[0]).describe('the look (design §4.1)'),
   accent: hex.optional().describe("replaces the theme's accent colour"),
+  brand: brandSchema.optional(),
 });
 
 /** A text prop of at most `max` characters. */

@@ -2,9 +2,11 @@
 
 ## Status
 
-`proposed (2026-10-19)`, waiting for the maintainer. Asked for while building hone-youtube-preparation
-(its decision D-012: "a full brand token set needs a hone-motif design change, proposed there
-separately").
+`accepted (approved by the maintainer 2026-10-19)` and implemented the same day. Asked for while
+building hone-youtube-preparation (its decision D-012: "a full brand token set needs a hone-motif design
+change, proposed there separately"); approved with "do it. make the changes. push". Two details changed
+while building it, marked below: the golden posters are named `brand`, and the contrast warning comes
+from `brand_warnings` and the placement check, not from `check_props`.
 
 ## Context
 
@@ -68,13 +70,16 @@ Option 3.
 - **The schema.** `shared/schema.ts`'s `base()` adds `brand` (zod, strict), so every exported
   `props.schema.json` gains it; `check_props` validates it like any prop (unknown keys, colour patterns,
   font names against the registry: a new check in Python, `brand-font-unknown`).
-- **Checks.** A brand whose `ink` on `bg` is under 4.5:1 contrast is a warning in `check_props`
-  (`brand-low-contrast`), not an error: the consumer decides.
+- **Checks.** A brand whose `ink` on `bg` is under 4.5:1 contrast is a warning (`brand-low-contrast`),
+  not an error: the consumer decides. *As built:* `check_props` returns only errors, so the warning comes
+  from `hone_motif.brand_warnings(props)` and from `check_placements` (a placement warning).
 - **Cache.** The brand is part of the props, so it is part of the render key already (§8.4).
-- **Gallery.** Each asset's detail view gets a "brand" preview with the gallery's sample brand, so an
-  author sees an asset survive someone else's colours and fonts.
-- **Golden posters.** One more golden poster per asset: its first theme with the sample brand
-  (`<theme>@brand`), so a change that ignores the brand is caught by the render tests (§12).
+- **Gallery.** Each asset gets a "brand" tile per aspect (its first theme with the library's sample
+  brand, `shared/brand.ts`, exported to `library/sample-brand.json`), so an author sees an asset survive
+  someone else's colours and fonts.
+- **Golden posters.** One more golden poster per asset and aspect: its first theme with the sample brand
+  (*as built:* named `brand`, `brand@9:16`, …, like the theme posters), so a change that ignores the brand
+  is caught by the render tests (§12).
 
 ### Guarantees added (design §14)
 
@@ -101,8 +106,10 @@ end-screen props (its own small follow-up; until then it keeps the nearest theme
 
 ## Migration and compatibility
 
-Additive. Assets, props and records without `brand` behave exactly as before; existing render keys do
-not change (an absent prop is not part of the key). `props.schema.json` files gain an optional property:
+Additive. Assets, props and records without `brand` behave exactly as before: no default is filled in,
+so an absent `brand` is not part of the props, and every existing golden poster matched unchanged. The
+render cache re-renders once, because `shared/themes.ts` now imports `shared/brand.ts` and shared code is
+part of the key (§8.4, D-026). `props.schema.json` files gain an optional property:
 a consumer validating replies against an older export keeps working. Projects that copied the library
 with `hone-motif init` get the change by re-running `npm run export` after updating their copy of
 `shared/`.

@@ -21,6 +21,10 @@ Version 0.1.0 ([0002](design/changes/0002-engine-and-starter-assets.md)).
 
 ### Added
 
+- Brand tokens ([0003](design/changes/0003-brand-tokens.md)): every asset takes an optional `brand`
+  (colours and registry fonts) over its theme; `brand-font-unknown` in `check_props`, `brand_warnings`
+  and a `brand-low-contrast` placement warning; a sample brand (`library/sample-brand.json`), a brand tile
+  per asset in the gallery and a `brand` golden poster per asset and aspect (design §4.3, case 20).
 - `hone-motif init <dir>`: copies the library into a new or empty folder to write a project's own assets.
 - Design §14 cases 17 (the longest text stays inside its region and the title-safe area, render suite),
   18 (`init`) and 19 (a damaged cache entry is rendered again).

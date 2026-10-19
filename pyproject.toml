@@ -63,6 +63,7 @@ packages = ["src/hone_motif"]
 "library/vocabulary.json" = "hone_motif/library/vocabulary.json"
 "library/aliases.json" = "hone_motif/library/aliases.json"
 "library/themes.json" = "hone_motif/library/themes.json"
+"library/sample-brand.json" = "hone_motif/library/sample-brand.json"
 "library/asset.schema.json" = "hone_motif/library/asset.schema.json"
 "library/package.json" = "hone_motif/library/package.json"
 "library/package-lock.json" = "hone_motif/library/package-lock.json"

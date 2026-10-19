@@ -240,6 +240,7 @@ def test_the_gallery_uses_stills_where_nothing_is_rendered(
     )
     for tile in data_of(index)["tiles"]:
         name = tile["theme"] if tile["aspect"] == "16:9" else f"{tile['theme']}@{tile['aspect']}"
+        assert tile["poster"] is not None, tile
         assert tile["poster"].endswith(f"/{name}.jpg"), tile
         assert (index.parent / tile["poster"]).is_file()
 

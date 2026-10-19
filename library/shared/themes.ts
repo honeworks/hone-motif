@@ -2,6 +2,8 @@
 // and draws only with these tokens, so a theme changes palette, type, motion and texture, never the layout.
 // scripts/export.ts writes them to themes.json for Python and the gallery.
 
+import {applyBrand, type Brand} from './brand.ts';
+
 export const THEME_NAMES = ['cinematic', 'dark', 'documentary', 'warm', 'pop'] as const;
 export type ThemeName = (typeof THEME_NAMES)[number];
 
@@ -111,9 +113,10 @@ export const THEMES: Record<ThemeName, Theme> = {
   },
 };
 
-/** The theme an asset draws with: the named theme, with the `accent` prop replacing its accent colour. */
-export const themeOf = (p: {theme: ThemeName; accent?: string | undefined}): Theme => {
-  const t = THEMES[p.theme];
+/** The theme an asset draws with: the named theme, then the `brand` prop's colours and fonts (change
+ * 0003), then the `accent` prop replacing the accent colour. */
+export const themeOf = (p: {theme: ThemeName; accent?: string | undefined; brand?: Brand | undefined}): Theme => {
+  const t = applyBrand(THEMES[p.theme], p.brand);
   return p.accent ? {...t, accent: p.accent, panelAccent: p.accent} : t;
 };
 

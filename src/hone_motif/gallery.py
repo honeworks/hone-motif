@@ -57,6 +57,12 @@ def _tile(asset: Asset, look: tuple[str, str], rendered: Rendered | None, out: P
     return tile
 
 
+def sample_brand(library: Path) -> dict[str, Any]:
+    """The library's sample brand (`sample-brand.json`, exported from shared/brand.ts; change 0003)."""
+    path = library / "sample-brand.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else {}
+
+
 def _asset_entry(asset: Asset) -> dict[str, Any]:
     entry = catalog_entry(asset, asset.aspects[0])
     entry.update(
@@ -108,23 +114,26 @@ def build_gallery(
     assets = sorted(library.assets.values(), key=lambda a: (order.index(a.category), a.subcategory, a.id))
     posters = _poster_stills(renderer, assets, cache) if stills else {}
     tiles: list[dict[str, Any]] = []
+
+    def tile_for(asset: Asset, name: str, props: dict[str, Any], aspect: str) -> dict[str, Any]:
+        job = plan(asset, props, fps=fps, aspect=aspect, size=preview_size(aspect, size))
+        rendered = cached(job, renderer, cache)
+        if rendered is None and render_missing:
+            log.info("rendering %s (%s, %s)", asset.id, name, aspect)
+            rendered = run_job(job, renderer, cache)
+        tile = _tile(asset, (name, aspect), rendered, out)
+        still = posters.get(asset.id, Path("-")) / f"{name if aspect == '16:9' else f'{name}@{aspect}'}.jpg"
+        if tile["poster"] is None and still.is_file():
+            tile["poster"] = _rel(still, out)
+        return tile
+
+    brand = sample_brand(library.root)
     for asset in assets:
         for aspect in asset.aspects:
-            for theme in asset.themes:
-                props = {**asset.props, "theme": theme}
-                job = plan(asset, props, fps=fps, aspect=aspect, size=preview_size(aspect, size))
-                rendered = cached(job, renderer, cache)
-                if rendered is None and render_missing:
-                    log.info("rendering %s (%s, %s)", asset.id, theme, aspect)
-                    rendered = run_job(job, renderer, cache)
-                tile = _tile(asset, (theme, aspect), rendered, out)
-                still = (
-                    posters.get(asset.id, Path("-"))
-                    / f"{theme if aspect == '16:9' else f'{theme}@{aspect}'}.jpg"
-                )
-                if tile["poster"] is None and still.is_file():
-                    tile["poster"] = _rel(still, out)
-                tiles.append(tile)
+            looks = [(theme, {**asset.props, "theme": theme}) for theme in asset.themes]
+            if brand:  # change 0003: the first theme under the sample brand
+                looks.append(("brand", {**asset.props, "theme": asset.themes[0], "brand": brand}))
+            tiles += [tile_for(asset, name, props, aspect) for name, props in looks]
     data = {
         "assets": {a.id: _asset_entry(a) for a in assets},
         "tiles": tiles,

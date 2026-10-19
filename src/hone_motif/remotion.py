@@ -195,8 +195,9 @@ def _files(job: RenderJob, out_dir: Path, log: str) -> dict[str, Path]:
 
 
 def still_names(asset: Asset) -> list[str]:
-    """The poster stills `scripts/stills.ts` writes for an asset: `<theme or sample>[@<aspect>]`."""
-    names = [*asset.themes, *asset.samples]
+    """The poster stills `scripts/stills.ts` writes for an asset: `<theme, sample or brand>[@<aspect>]`
+    (`brand`: the first theme under the sample brand, change 0003)."""
+    names = [*asset.themes, *asset.samples, "brand"]
     return [n if aspect == "16:9" else f"{n}@{aspect}" for aspect in asset.aspects for n in names]
 
 

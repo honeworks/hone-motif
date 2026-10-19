@@ -2,7 +2,8 @@
 
 **Status:** accepted in [changes/0001](changes/0001-initial-design.md) on 2026-10-10 and changed by
 [changes/0002](changes/0002-engine-and-starter-assets.md) on 2026-10-18: the engine (model, search, checks,
-renderer port, cache, CLI, gallery) with three starter assets; projects write their own assets. Section
+renderer port, cache, CLI, gallery) with three starter assets; projects write their own assets. Brand
+tokens added by [changes/0003](changes/0003-brand-tokens.md) on 2026-10-19. Section
 numbers are stable; code comments will refer to them ("design §7.3"). The evidence behind the defaults is
 in [history/0000-research.md](history/0000-research.md); smaller choices are in
 [decisions.md](decisions.md).
@@ -125,7 +126,8 @@ The rules a planner reads and `check_placements` enforces (§7.3).
 | `inputs` | file props (an image for a "next video" teaser): `{"prop": "thumbnail", "type": "image"}` |
 | `samples` | named example props beside `props`; `rtl` is the right-to-left sample every asset that sets `Arab` or `Hebr` text carries, rendered for its golden poster (§14 case 14) |
 
-Every asset also accepts `theme` (one of its `themes`) and an optional `accent` colour. A caption asset's
+Every asset also accepts `theme` (one of its `themes`), an optional `accent` colour and an optional
+`brand` (§4.3). A caption asset's
 props carry the timed text: `lines: [{"start_ms", "end_ms", "text", "words": [{"text", "start_ms",
 "end_ms"}]}]`, relative to the placement's start.
 
@@ -220,6 +222,33 @@ A closed vocabulary (`library/vocabulary.json`): `epic`, `triumphant`, `tragic`,
 `reflective`, `mysterious`, `mystic`, `tense`, `violent`, `romantic`, `tender`, `nostalgic`, `hopeful`,
 `calm`, `playful`, `energetic`, `upbeat`, `informative`, `neutral`, and `any`. Unknown moods are rejected.
 
+### 4.3 Brands (changes/0003)
+
+A `brand` prop draws an asset in a channel's own colours and fonts over a theme:
+
+```json
+{"theme": "warm",
+ "brand": {"bg": "#101114", "ink": "#f4f1ea", "inkSoft": "#c9c4b8", "accent": "#e8a33d",
+           "accent2": "#5fb3b3", "muted": "#8a8f98", "fonts": {"display": "Montserrat", "body": "Inter"}}}
+```
+
+Every field is optional; colours are `#rrggbb`; fonts are families of the library's registry
+(`fonts/fonts.json`; a project adds its own there). `themeOf` (`shared/themes.ts`, with `applyBrand` in
+`shared/brand.ts`) starts from the theme, applies the brand, then `accent`, which stays the strongest:
+
+- the six colours replace the same tokens; the accent also sets `panelAccent` and `titleFill`;
+- panel and over-footage tokens (`panelInk`, `overInk`, `scrim` …) follow the brand only when its `bg` is
+  on the same side (light or dark) as the theme's, so text on footage keeps its contrast; a light brand
+  belongs on a light theme (`documentary`);
+- `fonts.display` sets `display` and `title`, `fonts.body` sets `body` and `italic`, `fonts.rtl` sets
+  `rtl` and `rtlDisplay` (otherwise the theme's right-to-left fonts stay);
+- motion, pace, effects, `upper` and `tracking` stay the theme's.
+
+`check_props` refuses a font outside the registry (`brand-font-unknown`, naming the families) and bad
+colours or keys (the schema); `brand_warnings(props)` and `check_placements` warn when `ink` on `bg` is
+under 4.5:1 (`brand-low-contrast`). The library's sample brand (`SAMPLE_BRAND`, exported to
+`sample-brand.json`) is used for the gallery's brand tiles and the brand golden posters.
+
 ## 5. The library layout
 
 ```text
@@ -227,6 +256,7 @@ library/                         the Node project (Remotion); shipped in the whe
   package.json  package-lock.json  tsconfig.json
   vocabulary.json                categories, subcategories, kinds, slots, moods (§3, §4.2)
   themes.json                    exported theme tokens (§4.1)
+  sample-brand.json              the exported sample brand (§4.3)
   asset.schema.json              JSON Schema of asset.json (exported from the pydantic model)
   fonts/  fonts.json             OFL fonts and their registry (§2.8)
   shared/                        themes.ts, text.tsx (RTL-safe text), random.ts, layers.tsx, safe.ts, …
@@ -360,7 +390,7 @@ Errors:
 
 Warnings: an asset whose themes or moods differ from those of the other placements; an asset with text
 that cannot set every script of the video (`VideoInfo.scripts`); more than one transition per 20 s; a
-scene over a busy span.
+scene over a busy span; a `brand` whose ink on its backdrop is under 4.5:1 (§4.3).
 
 ### 7.4 First consumer: hone-music-video's YouTube version
 
@@ -471,7 +501,8 @@ Every command takes `--library <dir>` (default: the installed library).
 ## 10. The gallery
 
 A static HTML page generated from the catalogue and the cache (never committed): filters for category,
-kind, theme, mood, aspect ratio and script; a tile per asset, theme and aspect ratio with its poster and a
+kind, theme, mood, aspect ratio and script; a tile per asset, theme and aspect ratio (and a `brand` tile:
+the first theme under the sample brand, §4.3) with its poster and a
 muted preview on hover (960×540 WebM for 16:9, the same scale for the others, e.g. 540×960; alpha shown on a
 checkerboard); a detail view with the line, the placement rules,
 the text limits, the props schema and default props, the licence and fonts. `--render-missing` renders
@@ -514,7 +545,7 @@ the previews not yet in the cache, once; `--stills` gives every tile a poster fr
 | Integration (default) | the cache with the fake renderer: a render killed halfway leaves no entry; two processes, one render |
 | Acceptance (default) | the cases of §14 through the public API and CLI, with the fake renderer |
 | Node (`scripts/check.sh`) | TypeScript types, exported schemas and the registry up to date, the library check of §11 |
-| Render (`-m render`, through `scripts/gpu-lock.sh`) | per asset, theme and aspect: the poster still (batch stills at half size, decision D-027), compared by 64-bit perceptual hash with `tests/golden/posters.json` (Hamming distance ≤ 6); overlays have alpha; transitions' mattes are black at the first frame and white at the last, and the cut frame is where §8.3 says; the `rtl` sample of every right-to-left asset matches its golden hash; overlays at their longest text stay in their region and the title-safe area (case 17) |
+| Render (`-m render`, through `scripts/gpu-lock.sh`) | per asset, theme and aspect: the poster still (batch stills at half size, decision D-027), compared by 64-bit perceptual hash with `tests/golden/posters.json` (Hamming distance ≤ 6); overlays have alpha; transitions' mattes are black at the first frame and white at the last, and the cut frame is where §8.3 says; the `rtl` sample of every right-to-left asset matches its golden hash; the `brand` poster (first theme, sample brand) matches its golden hash and differs from the theme's; overlays at their longest text stay in their region and the title-safe area (case 17) |
 
 Golden posters are hashes, not images (decision D-007), so no media is committed; an intended visual
 change updates the hash in the same commit with the reason.
@@ -528,7 +559,8 @@ record hone-motif writes (§8.4); it holds no secrets (hone-motif needs none). L
 ## 14. Guarantees (acceptance cases)
 
 Each gets a test in `tests/e2e/` that runs offline with the fake renderer, except 13, 14 and 17,
-which run in the render suite, and 19, in `tests/unit/test_cache.py`.
+which run in the render suite, 19, in `tests/unit/test_cache.py`, and 20, in the render suite and
+`tests/unit/test_props.py`.
 
 1. Every asset in the library loads and validates (complete metadata, known vocabulary, unique ids,
    default props valid against the props schema, text limits consistent); `hone-motif check` exits 0.
@@ -564,6 +596,10 @@ which run in the render suite, and 19, in `tests/unit/test_cache.py`.
     folder that is not empty.
 19. A damaged cache entry (a `render.json` that does not parse, a missing layer or poster) is rendered
     again.
+20. An asset rendered with a `brand` draws in the brand's colours and fonts: its `brand` poster differs
+    from its first theme's and matches its golden hash (render suite). A brand font outside the registry
+    is refused (`brand-font-unknown`); a low-contrast brand is a warning (`brand-low-contrast`); props
+    without `brand` render as before (every older golden poster unchanged).
 
 ## 15. Known limits (0.1)
 

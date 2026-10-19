@@ -21,7 +21,7 @@ from .gallery import build_gallery
 from .library import Library
 from .placement import Placement, PlacementReport, check_placements
 from .prompt import placement_guide, placement_schema
-from .props import check_props
+from .props import brand_warnings, check_props
 from .render import Rendered, Renderer, RenderJob, render
 from .video import Section, Span, VideoInfo
 
@@ -48,6 +48,7 @@ __all__ = [
     "UnknownAssetError",
     "VideoInfo",
     "__version__",
+    "brand_warnings",
     "build_gallery",
     "check_placements",
     "check_props",

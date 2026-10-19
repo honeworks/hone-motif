@@ -35,6 +35,67 @@
    "type": "string",
    "maxLength": 32,
    "description": "the section name in a second language, under it"
+  },
+  "brand": {
+   "type": "object",
+   "properties": {
+    "bg": {
+     "description": "the backdrop of scenes",
+     "type": "string",
+     "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "ink": {
+     "description": "text on the backdrop",
+     "type": "string",
+     "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "inkSoft": {
+     "description": "secondary text",
+     "type": "string",
+     "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "accent": {
+     "description": "the main accent",
+     "type": "string",
+     "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "accent2": {
+     "description": "a second accent",
+     "type": "string",
+     "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "muted": {
+     "description": "quiet lines and labels",
+     "type": "string",
+     "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "fonts": {
+     "type": "object",
+     "properties": {
+      "display": {
+       "description": "big titles and headings",
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 60
+      },
+      "body": {
+       "description": "labels, buttons and soft lines",
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 60
+      },
+      "rtl": {
+       "description": "right-to-left text (Arabic script)",
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 60
+      }
+     },
+     "additionalProperties": false
+    }
+   },
+   "additionalProperties": false,
+   "description": "a channel's colours and fonts, laid over the theme (change 0003)"
   }
  },
  "required": [

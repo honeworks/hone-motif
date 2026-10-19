@@ -41,7 +41,7 @@ if sys.argv[1] == "scripts/stills.ts":
         if i == os.environ.get("FAKE_STILLS_SKIP"):
             continue
         meta = json.load(open(os.path.join("assets", i, "asset.json")))
-        names = meta["themes"] + list(meta.get("samples", {}))
+        names = meta["themes"] + list(meta.get("samples", {})) + ["brand"]  # as stills.ts (change 0003)
         for aspect in meta["aspects"]:
             for n in names:
                 name = n if aspect == "16:9" else n + "@" + aspect

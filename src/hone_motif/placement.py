@@ -11,7 +11,7 @@ from .asset import Frozen, Ms
 from .errors import Problem, UnknownAssetError
 from .library import Library
 from .placement_rules import Placed, single_rules, video_rules, warnings
-from .props import check_props, fill_defaults
+from .props import brand_warnings, check_props, fill_defaults
 from .video import VideoInfo
 
 
@@ -72,7 +72,7 @@ def _resolve(
         asset = lib.get(parsed.asset)
     except UnknownAssetError as e:
         return None, [Problem(code="unknown-asset", index=index, asset=parsed.asset, message=str(e))], []
-    notes: list[Problem] = []
+    notes = [p.model_copy(update={"index": index}) for p in brand_warnings(parsed.props, asset.id)]
     if asset.id != parsed.asset:
         notes.append(
             Problem(code="alias", index=index, asset=parsed.asset, message=f"renamed: use {asset.id}")

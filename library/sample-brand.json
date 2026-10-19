@@ -1,0 +1,12 @@
+{
+ "bg": "#0e2a2f",
+ "ink": "#e8fff6",
+ "inkSoft": "#9fd6c6",
+ "accent": "#ff7a1a",
+ "accent2": "#3ad1c4",
+ "muted": "#6fa79b",
+ "fonts": {
+  "display": "Montserrat",
+  "body": "Inter"
+ }
+}
